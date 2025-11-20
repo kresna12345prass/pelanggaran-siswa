@@ -1,0 +1,23 @@
+/* CSS BK - PROFILE.CSS */
+
+.card {
+    border: 1px solid #e8ecef;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e8ecef;
+    padding: 1rem 1.5rem;
+}
+
+.table-borderless th {
+    font-weight: 600;
+    color: #495057;
+}
+
+.rounded-circle {
+    border: 3px solid #0d6efd;
+}

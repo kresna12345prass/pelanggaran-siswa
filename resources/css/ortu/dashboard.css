@@ -1,0 +1,110 @@
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-title {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.page-subtitle {
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+.stat-card {
+    border: 1px solid #e8ecef;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: #d1d9e0;
+}
+
+.stat-card .card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+
+.stat-card-content h5 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card-content .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    line-height: 1;
+}
+
+.stat-card-icon {
+    font-size: 2.5rem;
+    opacity: 0.2;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-card-icon {
+    opacity: 0.3;
+}
+
+.icon-primary { color: #5a67d8; }
+.icon-success { color: #48bb78; }
+.icon-danger { color: #f56565; }
+.icon-warning { color: #ed8936; }
+.icon-info { color: #4299e1; }
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: none;
+}
+
+.card-header {
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e6ed;
+    padding: 1rem 1.5rem;
+}
+
+.card-header h5 {
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .stat-card .card-body {
+        padding: 1.25rem 1rem;
+    }
+    
+    .stat-card-content h5 {
+        font-size: 0.75rem;
+    }
+    
+    .stat-card-content .stat-number {
+        font-size: 1.75rem;
+    }
+    
+    .stat-card-icon {
+        font-size: 2rem;
+    }
+}

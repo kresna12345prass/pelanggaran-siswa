@@ -1,0 +1,413 @@
+/* =========================================
+ * CSS ORTU - LAYOUT.CSS
+ * (Sidebar, Navbar, Footer, Konten Utama)
+ ========================================= */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fc;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+/* == Sidebar == */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 50%, #084298 100%);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1030;
+    transition: all 0.3s ease;
+    box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 3px;
+}
+
+.sidebar-header {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0,0,0,0.1);
+}
+
+.sidebar-brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-brand-wrapper:hover {
+    transform: scale(1.02);
+}
+
+.sidebar-logo-img {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    filter: brightness(1.2) drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    flex-shrink: 0;
+}
+
+.sidebar-header .logo-brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 0.05rem;
+}
+
+.sidebar-header .logo-main {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.sidebar-header .logo-brand .logo-sis { 
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.sidebar-header .logo-brand .logo-kar { 
+    color: #ffc107;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.sidebar-header .logo-brand .logo-sub {
+    font-size: 0.63rem;
+    font-family: 'Poppins';
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+.sidebar-menu {
+    padding: 0.5rem 0;
+}
+
+.sidebar-menu .menu-header {
+    padding: 0.6rem 1.5rem 0.35rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.15rem;
+}
+
+.sidebar-menu .nav-item {
+    padding: 0 1rem;
+}
+
+.sidebar-menu .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.sidebar-menu .nav-link i {
+    font-size: 1.1rem;
+    width: 28px;
+    text-align: center;
+    margin-right: 0.85rem;
+}
+
+.sidebar-menu .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    transform: translateX(5px);
+}
+
+.sidebar-menu .nav-item.active .nav-link {
+    background-color: white;
+    color: #0d6efd;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.sidebar-menu .nav-item.active .nav-link i {
+    color: #0d6efd;
+}
+
+/* == Main Content == */
+.main-content {
+    width: calc(100% - 280px);
+    margin-left: 280px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+.page-content {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: #f4f7fc;
+}
+
+/* == Navbar == */
+.admin-navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #e0e6ed;
+    padding: 0.58rem 1.5rem;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    z-index: 1020;
+    min-height: auto;
+}
+
+.navbar-toggler-admin {
+    display: block;
+    border: none;
+    background: transparent;
+    font-size: 1.35rem;
+    color: #0d6efd;
+    padding: 0.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler-admin:hover {
+    color: #0a58ca;
+    transform: scale(1.1);
+}
+
+.navbar-toggler-admin:focus {
+    outline: none;
+}
+
+.admin-navbar .input-group .form-control {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.admin-navbar .input-group .btn {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.9rem;
+}
+
+.admin-navbar .user-dropdown .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0.85rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.admin-navbar .user-dropdown .nav-link:hover {
+    background-color: #f8f9fa;
+}
+
+.admin-navbar .user-dropdown img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #0d6efd;
+}
+
+.admin-navbar .user-dropdown .user-name {
+    font-weight: 600;
+    color: #343a40;
+    font-size: 0.9rem;
+}
+
+/* == Footer == */
+.admin-footer {
+    padding: 1.25rem 2rem;
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 50%, #084298 100%);
+    color: white;
+    margin-top: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.admin-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
+    opacity: 0.3;
+}
+
+.admin-footer .container-fluid {
+    position: relative;
+    z-index: 1;
+}
+
+.admin-footer .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.admin-footer .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.admin-footer .footer-logo img {
+    filter: brightness(1.2) drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    height: 32px;
+}
+
+.admin-footer .footer-text h6 {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0 0 0.15rem 0;
+    color: white;
+}
+
+.admin-footer .footer-text p {
+    margin: 0;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.75rem;
+}
+
+.admin-footer .footer-right p {
+    margin: 0;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.8rem;
+}
+
+body.sidebar-toggled .sidebar {
+    left: -280px;
+}
+
+body.sidebar-toggled .main-content {
+    width: 100%;
+    margin-left: 0;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1025;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+}
+
+@media (max-width: 992px) {
+    body.sidebar-toggled .sidebar-overlay {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        left: -280px;
+        z-index: 1030;
+    }
+    
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    body.sidebar-toggled .sidebar {
+        left: 0;
+        box-shadow: 2px 0 30px rgba(0,0,0,0.3);
+    }
+    
+    .page-content {
+        padding: 1.5rem;
+    }
+    
+    .admin-navbar {
+        padding: 0.65rem 1.25rem;
+    }
+    
+    .admin-footer {
+        padding: 1rem 1.5rem;
+    }
+    
+    .admin-footer .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    
+    .admin-footer .footer-left {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .admin-footer .footer-logo img {
+        height: 28px;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-content {
+        padding: 1rem;
+    }
+    
+    .admin-navbar {
+        padding: 0.6rem 1rem;
+    }
+    
+    .navbar-toggler-admin {
+        font-size: 1.25rem;
+        padding: 0.35rem;
+    }
+    
+    .admin-navbar .user-dropdown img {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .sidebar-header {
+        padding: 0.85rem;
+    }
+    
+    .sidebar-header .logo-main {
+        font-size: 1.25rem;
+    }
+    
+    .sidebar-logo-img {
+        height: 36px;
+        width: 36px;
+    }
+    
+    .sidebar-header .logo-brand .logo-sub {
+        font-size: 0.6rem;
+    }
+}

@@ -1,0 +1,92 @@
+/* =========================================
+ * CSS KESISWAAN - PELAKSANAAN.CSS
+ ========================================= */
+
+/* 1. IMPORT DATATABLES BOOTSTRAP 5 CSS */
+@import 'datatables.net-bs5/css/dataTables.bootstrap5.css';
+@import 'datatables.net-responsive-bs5/css/responsive.bootstrap5.css';
+
+/* 2. STYLE KUSTOM TABEL (Compact Version) */
+.pelaksanaan-table {
+    vertical-align: middle;
+    font-size: 0.813rem; /* DIPERKECIL: Sebelumnya 0.9rem */
+    margin-bottom: 0;
+}
+
+.pelaksanaan-table th {
+    font-weight: 600;
+    font-size: 0.75rem; /* DIPERKECIL: Sebelumnya 0.875rem */
+    color: #495057;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    white-space: nowrap;
+    padding: 0.6rem 0.75rem; /* Padding lebih rapat */
+}
+
+.pelaksanaan-table td {
+    padding: 0.6rem 0.75rem; /* Padding lebih rapat */
+    vertical-align: middle;
+}
+
+.pelaksanaan-table tbody tr {
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.pelaksanaan-table tbody tr:hover {
+    background-color: #f8f9fc;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Helper Alignment */
+.table .text-center { text-align: center !important; }
+
+/* Badge Style (Disesuaikan) */
+.pelaksanaan-table .badge {
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem; /* DIPERKECIL */
+}
+
+/* Tombol Aksi */
+.btn-action {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+    border-radius: 4px;
+}
+
+/* Tombol Aksi Group (untuk halaman Riwayat) */
+.action-buttons {
+    display: flex;
+    gap: 0.35rem;
+    justify-content: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+.action-buttons .btn {
+    padding: 0.25rem 0.5rem; /* Lebih kecil */
+    font-size: 0.75rem;       /* Lebih kecil */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+.action-buttons .btn i { font-size: 0.7rem; line-height: 1; }
+
+.action-buttons .btn-info { background-color: #0dcaf0; border-color: #0dcaf0; color: white; }
+.action-buttons .btn-info:hover { background-color: #0aa7c2; border-color: #0aa7c2; }
+.action-buttons .btn-danger { background-color: #dc3545; border-color: #dc3545; color: white; }
+.action-buttons .btn-danger:hover { background-color: #bb2d3b; border-color: #bb2d3b; }
+
+/* Responsive Adjustment */
+@media (max-width: 768px) {
+    .pelaksanaan-table {
+        font-size: 0.8rem;
+    }
+    .pelaksanaan-table th,
+    .pelaksanaan-table td {
+        padding: 0.5rem;
+    }
+}

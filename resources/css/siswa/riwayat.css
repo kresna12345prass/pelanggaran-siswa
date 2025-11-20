@@ -1,0 +1,62 @@
+@import 'datatables.net-bs5/css/dataTables.bootstrap5.css';
+@import 'datatables.net-responsive-bs5/css/responsive.bootstrap5.css';
+
+.card {
+    border: 1px solid #e8ecef;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    margin-bottom: 1.5rem;
+}
+
+.table {
+    margin-bottom: 0;
+    font-size: 0.875rem;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.813rem;
+}
+
+.table tbody td {
+    vertical-align: middle;
+    font-size: 0.813rem;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.badge {
+    padding: 0.35rem 0.65rem;
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+.btn-sm {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+}
+
+@media screen and (max-width: 767px) {
+    .table {
+        font-size: 0.75rem;
+    }
+    
+    .table thead th,
+    .table tbody td {
+        padding: 0.5rem 0.3rem;
+    }
+    
+    .badge {
+        font-size: 0.65rem;
+        padding: 0.25rem 0.4rem;
+    }
+    
+    .btn-sm {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+    }
+}

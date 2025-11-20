@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variasi Modal Delete</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variasi 1: Modern Gradient */
+        .modal-modern .modal-content {
+            border-radius: 20px;
+            border: none;
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-modern .delete-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(145deg, #ffe6e6, #ffcccc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(220, 53, 69, 0.2);
+            animation: pulse-danger 2s infinite;
+        }
+
+        @keyframes pulse-danger {
+            0% { box-shadow: 0 8px 25px rgba(220, 53, 69, 0.2); }
+            50% { box-shadow: 0 8px 35px rgba(220, 53, 69, 0.4); transform: scale(1.05); }
+            100% { box-shadow: 0 8px 25px rgba(220, 53, 69, 0.2); }
+        }
+
+        /* Variasi 2: Glassmorphism */
+        .modal-glass .modal-content {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+
+        .modal-glass .glass-icon {
+            background: rgba(220, 53, 69, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(220, 53, 69, 0.2);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Variasi 3: Neumorphism */
+        .modal-neuro .modal-content {
+            background: #f0f0f3;
+            border-radius: 20px;
+            border: none;
+            box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+        }
+
+        .modal-neuro .neuro-icon {
+            width: 80px;
+            height: 80px;
+            background: #f0f0f3;
+            border-radius: 50%;
+            box-shadow: inset 8px 8px 16px #bebebe, inset -8px -8px 16px #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-neuro .btn-neuro {
+            background: #f0f0f3;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .modal-neuro .btn-neuro:hover {
+            box-shadow: inset 8px 8px 16px #bebebe, inset -8px -8px 16px #ffffff;
+        }
+
+        /* Variasi 4: Minimalist */
+        .modal-minimal .modal-content {
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            background: white;
+        }
+
+        .modal-minimal .minimal-line {
+            width: 60px;
+            height: 4px;
+            background: #dc3545;
+            border-radius: 2px;
+            margin: 0 auto 20px;
+        }
+
+        .modal-minimal .btn {
+            border-radius: 0;
+            border: 2px solid;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Variasi 5: Dark Mode */
+        .modal-dark .modal-content {
+            background: #2d3748;
+            border: 1px solid #4a5568;
+            border-radius: 15px;
+            color: white;
+        }
+
+        .modal-dark .dark-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(145deg, #e53e3e, #c53030);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(229, 62, 62, 0.3);
+        }
+
+        .modal-dark .btn-dark-outline {
+            background: transparent;
+            border: 2px solid #718096;
+            color: #a0aec0;
+        }
+
+        .modal-dark .btn-dark-outline:hover {
+            background: #718096;
+            color: white;
+        }
+
+        /* Common Styles */
+        .btn {
+            border-radius: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .demo-btn {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Variasi Modal Delete</h1>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="text-center">
+                    <button class="btn btn-primary demo-btn" data-bs-toggle="modal" data-bs-target="#modalModern">
+                        Modern Gradient
+                    </button>
+                    <button class="btn btn-info demo-btn" data-bs-toggle="modal" data-bs-target="#modalGlass">
+                        Glassmorphism
+                    </button>
+                    <button class="btn btn-secondary demo-btn" data-bs-toggle="modal" data-bs-target="#modalNeuro">
+                        Neumorphism
+                    </button>
+                    <button class="btn btn-warning demo-btn" data-bs-toggle="modal" data-bs-target="#modalMinimal">
+                        Minimalist
+                    </button>
+                    <button class="btn btn-dark demo-btn" data-bs-toggle="modal" data-bs-target="#modalDark">
+                        Dark Mode
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 1: Modern Gradient -->
+    <div class="modal fade modal-modern" id="modalModern" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-body text-center p-5">
+                    <div class="mb-4">
+                        <div class="delete-icon-wrapper mx-auto mb-3">
+                            <i class="fa-solid fa-trash-can text-danger" style="font-size: 3rem;"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark mb-2">Hapus Data Siswa?</h4>
+                        <p class="text-muted mb-0">Data siswa <strong class="text-danger">Ahmad Rizki</strong> akan dihapus permanen.</p>
+                        <p class="text-muted small">Tindakan ini tidak dapat dibatalkan!</p>
+                    </div>
+                    
+                    <div class="d-flex gap-3 justify-content-center">
+                        <button type="button" class="btn btn-light px-4 py-2" data-bs-dismiss="modal">
+                            <i class="fa-solid fa-times me-2"></i>Batal
+                        </button>
+                        <button type="button" class="btn btn-danger px-4 py-2">
+                            <i class="fa-solid fa-trash me-2"></i>Ya, Hapus
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Glassmorphism -->
+    <div class="modal fade modal-glass" id="modalGlass" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center p-5">
+                    <div class="mb-4">
+                        <div class="glass-icon mx-auto mb-3">
+                            <i class="fa-solid fa-exclamation-triangle text-danger" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark mb-2">Konfirmasi Penghapusan</h4>
+                        <p class="text-dark mb-0">Yakin ingin menghapus <strong class="text-danger">Ahmad Rizki</strong>?</p>
+                        <p class="text-muted small">Data akan hilang selamanya</p>
+                    </div>
+                    
+                    <div class="d-flex gap-3 justify-content-center">
+                        <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">
+                            Batal
+                        </button>
+                        <button type="button" class="btn btn-danger px-4">
+                            Hapus
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Neumorphism -->
+    <div class="modal fade modal-neuro" id="modalNeuro" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center p-5">
+                    <div class="mb-4">
+                        <div class="neuro-icon mx-auto mb-3">
+                            <i class="fa-solid fa-user-slash text-danger" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark mb-2">Hapus Siswa</h4>
+                        <p class="text-muted mb-0">Menghapus <strong>Ahmad Rizki</strong> dari sistem</p>
+                        <p class="text-muted small">Aksi ini permanen</p>
+                    </div>
+                    
+                    <div class="d-flex gap-3 justify-content-center">
+                        <button type="button" class="btn btn-neuro text-muted px-4" data-bs-dismiss="modal">
+                            Batal
+                        </button>
+                        <button type="button" class="btn btn-danger px-4">
+                            Hapus
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: Minimalist -->
+    <div class="modal fade modal-minimal" id="modalMinimal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center p-5">
+                    <div class="minimal-line"></div>
+                    <h4 class="fw-bold text-dark mb-3">DELETE STUDENT</h4>
+                    <p class="text-muted mb-4">Remove <strong>AHMAD RIZKI</strong> permanently?</p>
+                    
+                    <div class="d-flex gap-3 justify-content-center">
+                        <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">
+                            CANCEL
+                        </button>
+                        <button type="button" class="btn btn-danger px-4">
+                            DELETE
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5: Dark Mode -->
+    <div class="modal fade modal-dark" id="modalDark" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center p-5">
+                    <div class="mb-4">
+                        <div class="dark-icon mx-auto mb-3">
+                            <i class="fa-solid fa-skull text-white" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h4 class="fw-bold text-white mb-2">Danger Zone</h4>
+                        <p class="text-gray-300 mb-0">Permanently delete <strong class="text-red-400">Ahmad Rizki</strong>?</p>
+                        <p class="text-gray-400 small">This action cannot be undone</p>
+                    </div>
+                    
+                    <div class="d-flex gap-3 justify-content-center">
+                        <button type="button" class="btn btn-dark-outline px-4" data-bs-dismiss="modal">
+                            Cancel
+                        </button>
+                        <button type="button" class="btn btn-danger px-4">
+                            Delete Forever
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

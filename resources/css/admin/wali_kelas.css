@@ -1,0 +1,102 @@
+/* =========================================
+ * CSS ADMIN - WALI_KELAS.CSS
+ ========================================= */
+
+/* 1. IMPORT DATATABLES SUPAYA SAMA PERSIS DENGAN TAHUN AJARAN */
+@import 'datatables.net-bs5/css/dataTables.bootstrap5.css';
+@import 'datatables.net-responsive-bs5/css/responsive.bootstrap5.css';
+
+/* 2. STYLE KUSTOM TABEL (Disamakan dengan ta-table) */
+.wk-table {
+    vertical-align: middle;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+.wk-table th {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #495057;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    white-space: nowrap;
+    padding: 0.75rem;
+}
+.wk-table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+}
+.wk-table tbody tr {
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+.wk-table tbody tr:hover {
+    background-color: #f8f9fc;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Helper Alignment */
+.table .text-center { text-align: center !important; }
+.table .text-end { text-align: right !important; }
+
+/* Badge Style */
+.wk-table .badge {
+    font-weight: 500;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.8rem;
+}
+
+/* Tombol Aksi (Disamakan persis) */
+.action-buttons {
+    display: flex;
+    gap: 0.35rem;
+    justify-content: center;
+    flex-wrap: nowrap; /* Biar tombol tidak turun ke bawah */
+    white-space: nowrap;
+}
+
+.action-buttons .btn {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+}
+
+.action-buttons .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.action-buttons .btn i { 
+    font-size: 0.7rem; 
+    line-height: 1; 
+}
+
+.action-buttons .btn-info { 
+    background-color: #0dcaf0; 
+    border-color: #0dcaf0; 
+    color: white; 
+}
+
+.action-buttons .btn-info:hover { 
+    background-color: #0aa7c2; 
+    border-color: #0aa7c2; 
+}
+
+/* Form Card & Responsiveness */
+@media (max-width: 768px) {
+    .wk-table {
+        font-size: 0.85rem;
+    }
+    .wk-table th,
+    .wk-table td {
+        padding: 0.5rem;
+    }
+    .action-buttons .btn {
+        padding: 0.35rem 0.5rem;
+        min-width: 28px;
+    }
+}

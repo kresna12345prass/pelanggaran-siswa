@@ -1,0 +1,271 @@
+/* =========================================
+ * CSS ADMIN - SISWA.CSS
+ ========================================= */
+
+/* 1. IMPORT DATATABLES BOOTSTRAP 5 CSS */
+@import 'datatables.net-bs5/css/dataTables.bootstrap5.css';
+@import 'datatables.net-responsive-bs5/css/responsive.bootstrap5.css';
+
+/* 2. STYLE KUSTOM TABEL */
+.siswa-table {
+    vertical-align: middle;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+.siswa-table th {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #495057;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    white-space: nowrap;
+    padding: 0.75rem;
+}
+.siswa-table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+}
+.siswa-table tbody tr {
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+.siswa-table tbody tr:hover {
+    background-color: #f8f9fc;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.table .text-center {
+    text-align: center !important;
+}
+
+.siswa-table .siswa-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e9ecef;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Tombol Aksi */
+.action-buttons {
+    display: flex;
+    gap: 0.35rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.action-buttons .btn {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+}
+
+.action-buttons .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.action-buttons .btn i { 
+    font-size: 0.7rem;
+    line-height: 1;
+}
+
+.action-buttons .btn-info { 
+    background-color: #0dcaf0; 
+    border-color: #0dcaf0; 
+    color: white; 
+}
+
+.action-buttons .btn-info:hover { 
+    background-color: #0aa7c2; 
+    border-color: #0aa7c2; 
+}
+
+/* Card Header Gradient */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+    border: none;
+}
+
+
+/* Form Card */
+.siswa-form-card { /* Ganti nama class */
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+.siswa-form-card .card-header {
+    background: linear-gradient(135deg, #198754 0%, #146c43 100%); /* Warna hijau */
+    color: white;
+    border: none;
+}
+.siswa-form-card .card-header h6 {
+    color: white !important;
+}
+.siswa-form-card .form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+.siswa-form-card .form-control,
+.siswa-form-card .form-select {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    padding: 0.6rem 0.75rem;
+    transition: all 0.2s ease;
+}
+.siswa-form-card .form-control:focus,
+.siswa-form-card .form-select:focus {
+    border-color: #198754; /* Warna hijau */
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
+}
+
+/* Card Halaman Show (Detail) */
+.siswa-detail-card { /* Ganti nama class */
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+.siswa-detail-card .card-header {
+    border-bottom: 2px solid #e9ecef;
+    background-color: #f8f9fa;
+}
+.detail-item {
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+.detail-item:hover {
+    background: #e9ecef;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .siswa-table {
+        font-size: 0.85rem;
+    }
+    
+    .siswa-table th,
+    .siswa-table td {
+        padding: 0.5rem;
+    }
+    
+    .siswa-table .siswa-avatar {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .action-buttons .btn {
+        padding: 0.35rem 0.5rem;
+        min-width: 28px;
+    }
+    
+    .siswa-form-card .form-select,
+    .siswa-form-card .form-control {
+        font-size: 0.875rem;
+        padding: 0.5rem;
+    }
+    
+    .siswa-form-card .form-label {
+        font-size: 0.875rem;
+    }
+}
+.detail-item small {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.detail-item strong {
+    font-size: 0.95rem;
+    color: #212529;
+}
+
+/* Custom Delete Modal Styles */
+#deleteSiswaModal .modal-content {
+    border-radius: 20px;
+    border: none;
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+#deleteSiswaModal .delete-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(145deg, #ffe6e6, #ffcccc);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(220, 53, 69, 0.2);
+    animation: pulse-danger 2s infinite;
+}
+
+@keyframes pulse-danger {
+    0% {
+        box-shadow: 0 8px 25px rgba(220, 53, 69, 0.2);
+    }
+    50% {
+        box-shadow: 0 8px 35px rgba(220, 53, 69, 0.4);
+        transform: scale(1.05);
+    }
+    100% {
+        box-shadow: 0 8px 25px rgba(220, 53, 69, 0.2);
+    }
+}
+
+#deleteSiswaModal .btn {
+    border-radius: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#deleteSiswaModal .btn-light {
+    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+    border: 2px solid #dee2e6;
+    color: #6c757d;
+}
+
+#deleteSiswaModal .btn-light:hover {
+    background: linear-gradient(145deg, #e9ecef, #dee2e6);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+#deleteSiswaModal .btn-danger {
+    background: linear-gradient(145deg, #dc3545, #c82333);
+    border: 2px solid #dc3545;
+    position: relative;
+    overflow: hidden;
+}
+
+#deleteSiswaModal .btn-danger:hover {
+    background: linear-gradient(145deg, #c82333, #bd2130);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(220, 53, 69, 0.4);
+}
+
+#deleteSiswaModal .btn-danger::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+#deleteSiswaModal .btn-danger:hover::before {
+    left: 100%;
+}
