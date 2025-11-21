@@ -28,7 +28,12 @@ $(document).ready(function() {
             ],
             order: [[1, 'desc']], 
             pageLength: 10,
-            lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Semua"]]
+            lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Semua"]],
+            rowCallback: function(row, data, index) {
+                var pageInfo = this.api().page.info();
+                var rowNumber = pageInfo.start + index + 1;
+                $('td:eq(0)', row).html(rowNumber);
+            }
         });
     }
 

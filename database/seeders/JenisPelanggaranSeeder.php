@@ -30,7 +30,6 @@ class JenisPelanggaranSeeder extends Seeder
         // A. KETERTIBAN
         $cat = KategoriPelanggaran::create([
             'nama_kategori' => 'KETERTIBAN', 
-            'kode_kategori' => 'A', 
             'kategori_induk' => 'KEPRIBADIAN'
         ]);
         
@@ -57,7 +56,6 @@ class JenisPelanggaranSeeder extends Seeder
         // B. ROKOK
         $cat = KategoriPelanggaran::create([
             'nama_kategori' => 'ROKOK', 
-            'kode_kategori' => 'B', 
             'kategori_induk' => 'KEPRIBADIAN'
         ]);
 
@@ -70,7 +68,6 @@ class JenisPelanggaranSeeder extends Seeder
         // C. BUKU, MAJALAH ATAU KASET TERLARANG
         $cat = KategoriPelanggaran::create([
             'nama_kategori' => 'BUKU, MAJALAH, KASET TERLARANG', 
-            'kode_kategori' => 'C', 
             'kategori_induk' => 'KEPRIBADIAN'
         ]);
 
@@ -82,7 +79,6 @@ class JenisPelanggaranSeeder extends Seeder
         // D. SENJATA
         $cat = KategoriPelanggaran::create([
             'nama_kategori' => 'SENJATA', 
-            'kode_kategori' => 'D', 
             'kategori_induk' => 'KEPRIBADIAN'
         ]);
 
@@ -96,7 +92,6 @@ class JenisPelanggaranSeeder extends Seeder
         // E. OBAT/MINUMAN TERLARANG
         $cat = KategoriPelanggaran::create([
             'nama_kategori' => 'OBAT/MINUMAN TERLARANG', 
-            'kode_kategori' => 'E', 
             'kategori_induk' => 'KEPRIBADIAN'
         ]);
 
@@ -109,7 +104,6 @@ class JenisPelanggaranSeeder extends Seeder
         // F. PERKELAHIAN
         $cat = KategoriPelanggaran::create([
             'nama_kategori' => 'PERKELAHIAN', 
-            'kode_kategori' => 'F', 
             'kategori_induk' => 'KEPRIBADIAN'
         ]);
 
@@ -122,7 +116,6 @@ class JenisPelanggaranSeeder extends Seeder
         // G. PELANGGARAN TERHADAP KEPALA SEKOLAH, GURU DAN KARYAWAN
         $cat = KategoriPelanggaran::create([
             'nama_kategori' => 'PELANGGARAN THD GURU/KARYAWAN', 
-            'kode_kategori' => 'G', 
             'kategori_induk' => 'KEPRIBADIAN'
         ]);
 
@@ -139,7 +132,6 @@ class JenisPelanggaranSeeder extends Seeder
         // A. KETERLAMBATAN
         $cat = KategoriPelanggaran::create([
             'nama_kategori' => 'KETERLAMBATAN', 
-            'kode_kategori' => 'A', 
             'kategori_induk' => 'KERAJINAN'
         ]);
 
@@ -157,7 +149,6 @@ class JenisPelanggaranSeeder extends Seeder
         // B. KEHADIRAN
         $cat = KategoriPelanggaran::create([
             'nama_kategori' => 'KEHADIRAN', 
-            'kode_kategori' => 'B', 
             'kategori_induk' => 'KERAJINAN'
         ]);
 
@@ -178,7 +169,6 @@ class JenisPelanggaranSeeder extends Seeder
         // A. PAKAIAN
         $cat = KategoriPelanggaran::create([
             'nama_kategori' => 'PAKAIAN', 
-            'kode_kategori' => 'A', 
             'kategori_induk' => 'KERAPIAN'
         ]);
 
@@ -199,7 +189,6 @@ class JenisPelanggaranSeeder extends Seeder
         // B. RAMBUT
         $cat = KategoriPelanggaran::create([
             'nama_kategori' => 'RAMBUT', 
-            'kode_kategori' => 'B', 
             'kategori_induk' => 'KERAPIAN'
         ]);
 
@@ -211,7 +200,6 @@ class JenisPelanggaranSeeder extends Seeder
         // C. BADAN
         $cat = KategoriPelanggaran::create([
             'nama_kategori' => 'BADAN', 
-            'kode_kategori' => 'C', 
             'kategori_induk' => 'KERAPIAN'
         ]);
 

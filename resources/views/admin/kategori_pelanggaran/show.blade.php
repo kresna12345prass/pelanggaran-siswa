@@ -17,23 +17,16 @@
     <div class="card shadow-sm mb-4">
         <div class="card-header py-3 bg-light d-flex justify-content-between align-items-center">
             <h6 class="m-0 fw-bold text-primary"><i class="fa-solid fa-list me-2"></i>{{ $kategori->nama_kategori }}</h6>
-            <span class="badge bg-secondary">{{ $kategori->kode_kategori }}</span>
         </div>
         <div class="card-body p-4">
              <div class="row g-3">
-                <div class="col-md-6">
-                    <div class="detail-item">
-                        <small class="text-muted d-block mb-1">Kode Kategori</small>
-                        <strong>{{ $kategori->kode_kategori }}</strong>
-                    </div>
-                </div>
                 <div class="col-md-6">
                     <div class="detail-item">
                         <small class="text-muted d-block mb-1">Nama Kategori</small>
                         <strong>{{ $kategori->nama_kategori }}</strong>
                     </div>
                 </div>
-                <div class="col-12">
+                <div class="col-md-6">
                     <div class="detail-item">
                         <small class="text-muted d-block mb-1">Kategori Induk</small>
                         <strong>{{ $kategori->kategori_induk ?? '-' }}</strong>

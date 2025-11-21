@@ -13,7 +13,6 @@ class KategoriPelanggaran extends Model
 
     protected $fillable = [
         'nama_kategori',
-        'kode_kategori',
         'kategori_induk',
         'deskripsi'
     ];

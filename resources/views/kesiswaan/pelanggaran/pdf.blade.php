@@ -62,9 +62,8 @@
     </table>
 
     @if($pelanggaran->foto_bukti)
-    <div style="margin: 20px 0; text-align: center;">
-        <p style="font-weight: bold; margin-bottom: 10px;">Foto Bukti Pelanggaran:</p>
-        <img src="{{ public_path('storage/' . $pelanggaran->foto_bukti) }}" style="max-width: 400px; max-height: 300px; border: 1px solid #333;">
+    <div style="margin: 20px 0;">
+        <p style="font-weight: bold; margin-bottom: 10px;">Foto Bukti Pelanggaran: Tersedia (lihat di sistem)</p>
     </div>
     @endif
 

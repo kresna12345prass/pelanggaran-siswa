@@ -78,7 +78,7 @@
                         <div class="col-md-3">
                             <select name="status" class="form-select form-select-sm" onchange="this.form.submit()">
                                 <option value="all" {{ $status == 'all' ? 'selected' : '' }}>Semua Status</option>
-                                <option value="pending" {{ $status == 'pending' ? 'selected' : '' }}>Pending</option>
+                                <option value="menunggu" {{ $status == 'menunggu' ? 'selected' : '' }}>Pending</option>
                                 <option value="diverifikasi" {{ $status == 'diverifikasi' ? 'selected' : '' }}>Diverifikasi</option>
                                 <option value="ditolak" {{ $status == 'ditolak' ? 'selected' : '' }}>Ditolak</option>
                             </select>
@@ -113,7 +113,7 @@
                                 <td>{{ $p->jenisPelanggaran->nama_pelanggaran ?? '-' }}</td>
                                 <td class="text-center"><span class="badge bg-danger">{{ $p->poin }}</span></td>
                                 <td class="text-center">
-                                    @if($p->status_verifikasi == 'pending')
+                                    @if($p->status_verifikasi == 'menunggu')
                                         <span class="badge bg-warning">Pending</span>
                                     @elseif($p->status_verifikasi == 'diverifikasi')
                                         <span class="badge bg-success">Diverifikasi</span>

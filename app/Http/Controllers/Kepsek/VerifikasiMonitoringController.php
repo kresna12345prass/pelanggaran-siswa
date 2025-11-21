@@ -24,7 +24,7 @@ class VerifikasiMonitoringController extends Controller
         $pelanggaran = $query->get();
 
         $stats = [
-            'pending' => Pelanggaran::where('status_verifikasi', 'pending')->count(),
+            'pending' => Pelanggaran::where('status_verifikasi', 'menunggu')->count(),
             'diverifikasi' => Pelanggaran::where('status_verifikasi', 'diverifikasi')->count(),
             'ditolak' => Pelanggaran::where('status_verifikasi', 'ditolak')->count(),
         ];

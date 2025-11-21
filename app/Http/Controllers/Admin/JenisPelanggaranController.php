@@ -25,8 +25,8 @@ class JenisPelanggaranController extends Controller
     public function create()
     {
         $kategori = \App\Models\KategoriPelanggaran::all();
-        $kategoriInduk = \App\Models\KategoriPelanggaran::distinct()->pluck('kategori_induk')->filter();
-        return view('admin.aturan_pelanggaran.create', compact('kategori', 'kategoriInduk'));
+        $sanksi = \App\Models\MasterSanksiBertahap::orderBy('poin_minimal')->get();
+        return view('admin.aturan_pelanggaran.create', compact('kategori', 'sanksi'));
     }
 
     /**
@@ -63,8 +63,8 @@ class JenisPelanggaranController extends Controller
     public function edit(JenisPelanggaran $aturan_pelanggaran)
     {
         $kategori = \App\Models\KategoriPelanggaran::all();
-        $kategoriInduk = \App\Models\KategoriPelanggaran::distinct()->pluck('kategori_induk')->filter();
-        return view('admin.aturan_pelanggaran.edit', ['aturan' => $aturan_pelanggaran, 'kategori' => $kategori, 'kategoriInduk' => $kategoriInduk]);
+        $sanksi = \App\Models\MasterSanksiBertahap::orderBy('poin_minimal')->get();
+        return view('admin.aturan_pelanggaran.edit', ['aturan' => $aturan_pelanggaran, 'kategori' => $kategori, 'sanksi' => $sanksi]);
     }
 
     /**

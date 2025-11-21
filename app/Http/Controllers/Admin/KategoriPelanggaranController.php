@@ -29,10 +29,9 @@ class KategoriPelanggaranController extends Controller
     // Memproses penyimpanan kategori baru ke database
     public function store(Request $request)
     {
-        // Validasi input: Nama dan Kode Kategori harus unik (tidak boleh kembar)
+        // Validasi input: Nama Kategori harus unik (tidak boleh kembar)
         $request->validate([
             'nama_kategori'  => 'required|string|max:255|unique:kategori_pelanggaran',
-            'kode_kategori'  => 'required|string|max:10|unique:kategori_pelanggaran',
             'kategori_induk' => 'nullable|string|max:255', // Boleh kosong
         ]);
 
@@ -65,7 +64,6 @@ class KategoriPelanggaranController extends Controller
         $request->validate([
             // Gunakan 'ignore' agar validasi unik tidak memblokir data dirinya sendiri saat disimpan
             'nama_kategori'  => ['required', 'string', 'max:255', Rule::unique('kategori_pelanggaran')->ignore($kategori_pelanggaran->id)],
-            'kode_kategori'  => ['required', 'string', 'max:10', Rule::unique('kategori_pelanggaran')->ignore($kategori_pelanggaran->id)],
             'kategori_induk' => 'nullable|string|max:255',
         ]);
 
@@ -95,7 +93,6 @@ class KategoriPelanggaranController extends Controller
         $data = [[
             '<style bgcolor="#4472C4" color="#FFFFFF" font-size="12" font-style="bold" border="thin" border-color="#000000"><center>No</center></style>',
             '<style bgcolor="#4472C4" color="#FFFFFF" font-size="12" font-style="bold" border="thin" border-color="#000000"><center>Nama Kategori</center></style>',
-            '<style bgcolor="#4472C4" color="#FFFFFF" font-size="12" font-style="bold" border="thin" border-color="#000000"><center>Kode Kategori</center></style>',
             '<style bgcolor="#4472C4" color="#FFFFFF" font-size="12" font-style="bold" border="thin" border-color="#000000"><center>Kategori Induk</center></style>',
             '<style bgcolor="#4472C4" color="#FFFFFF" font-size="12" font-style="bold" border="thin" border-color="#000000"><center>Deskripsi</center></style>'
         ]];
@@ -105,7 +102,6 @@ class KategoriPelanggaranController extends Controller
             $data[] = [
                 '<style border="thin" border-color="#000000"><center>' . ($index + 1) . '</center></style>',
                 '<style border="thin" border-color="#000000">' . $item->nama_kategori . '</style>',
-                '<style border="thin" border-color="#000000"><center>' . $item->kode_kategori . '</center></style>',
                 '<style border="thin" border-color="#000000">' . ($item->kategori_induk ?? '-') . '</style>',
                 '<style border="thin" border-color="#000000">' . ($item->deskripsi ?? '-') . '</style>'
             ];

@@ -22,6 +22,7 @@ class Pelanggaran extends Model
     public function jenisPelanggaran() { return $this->belongsTo(JenisPelanggaran::class); }
     public function tahunAjaran() { return $this->belongsTo(TahunAjaran::class); }
     public function userPencatat() { return $this->belongsTo(User::class, 'user_pencatat'); }
+    public function pencatat() { return $this->belongsTo(User::class, 'user_pencatat'); }
     public function userVerifikator() { return $this->belongsTo(User::class, 'user_verifikator'); }
     
     // Relasi ke Sanksi

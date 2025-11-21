@@ -15,6 +15,13 @@
         </a>
     </div>
 
+    @if(session('error'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
     <div class="card user-form-card shadow-sm mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 fw-bold text-primary">Formulir Pengguna Baru</h6>

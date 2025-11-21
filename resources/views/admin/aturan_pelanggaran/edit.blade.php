@@ -32,35 +32,26 @@
                     <input type="number" class="form-control @error('poin') is-invalid @enderror" id="poin" name="poin" value="{{ old('poin', $aturan->poin) }}" required>
                     @error('poin') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="kategori_induk" class="form-label">Kategori Induk</label>
-                            <select class="form-select @error('kategori_induk') is-invalid @enderror" id="kategori_induk" name="kategori_induk">
-                                <option value="">-- Pilih Kategori Induk --</option>
-                                @foreach($kategoriInduk as $induk)
-                                    <option value="{{ $induk }}" {{ old('kategori_induk', $aturan->kategori?->kategori_induk) == $induk ? 'selected' : '' }}>{{ $induk }}</option>
-                                @endforeach
-                            </select>
-                            @error('kategori_induk') <div class="invalid-feedback">{{ $message }}</div> @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="kategori_pelanggaran_id" class="form-label">Kategori</label>
-                            <select class="form-select @error('kategori_pelanggaran_id') is-invalid @enderror" id="kategori_pelanggaran_id" name="kategori_pelanggaran_id">
-                                <option value="">-- Pilih Kategori --</option>
-                                @foreach($kategori as $k)
-                                    <option value="{{ $k->id }}" data-induk="{{ $k->kategori_induk }}" {{ old('kategori_pelanggaran_id', $aturan->kategori_pelanggaran_id) == $k->id ? 'selected' : '' }}>{{ $k->nama_kategori }}</option>
-                                @endforeach
-                            </select>
-                            @error('kategori_pelanggaran_id') <div class="invalid-feedback">{{ $message }}</div> @enderror
-                        </div>
-                    </div>
+                <div class="mb-3">
+                    <label for="kategori_pelanggaran_id" class="form-label">Kategori</label>
+                    <select class="form-select @error('kategori_pelanggaran_id') is-invalid @enderror" id="kategori_pelanggaran_id" name="kategori_pelanggaran_id">
+                        <option value="">-- Pilih Kategori --</option>
+                        @foreach($kategori as $k)
+                            <option value="{{ $k->id }}" {{ old('kategori_pelanggaran_id', $aturan->kategori_pelanggaran_id) == $k->id ? 'selected' : '' }}>{{ $k->kategori_induk }} - {{ $k->nama_kategori }}</option>
+                        @endforeach
+                    </select>
+                    @error('kategori_pelanggaran_id') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
                 <div class="mb-3">
                     <label for="sanksi" class="form-label">Sanksi Rekomendasi</label>
-                    <input type="text" class="form-control @error('sanksi') is-invalid @enderror" id="sanksi" name="sanksi" value="{{ old('sanksi', $aturan->sanksi) }}">
+                    <select class="form-select @error('sanksi') is-invalid @enderror" id="sanksi" name="sanksi">
+                        <option value="">-- Pilih Sanksi --</option>
+                        @foreach($sanksi as $s)
+                            <option value="{{ $s->nama_sanksi }}" {{ old('sanksi', $aturan->sanksi) == $s->nama_sanksi ? 'selected' : '' }}>
+                                {{ $s->nama_sanksi }} ({{ $s->poin_minimal }}-{{ $s->poin_maksimal }} poin)
+                            </option>
+                        @endforeach
+                    </select>
                     @error('sanksi') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
                 <div class="mb-3">

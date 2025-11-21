@@ -37,6 +37,14 @@ class UserController extends Controller
             'spesialisasi' => 'nullable|string|max:255',
             'can_verify'   => 'nullable|boolean',
         ]);
+
+        // Validasi kepala sekolah hanya boleh satu
+        if ($request->level === 'kepsek' && User::where('level', 'kepsek')->exists()) {
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'Kepala sekolah sudah ada. Hanya boleh ada satu kepala sekolah.');
+        }
+
         User::create([
             'nama_lengkap' => $request->nama_lengkap,
             'username'     => $request->username,
@@ -75,6 +83,14 @@ class UserController extends Controller
             'spesialisasi' => 'nullable|string|max:255',
             'can_verify'   => 'nullable|boolean',
         ]);
+
+        // Validasi kepala sekolah hanya boleh satu
+        if ($request->level === 'kepsek' && $user->level !== 'kepsek' && User::where('level', 'kepsek')->exists()) {
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'Kepala sekolah sudah ada. Hanya boleh ada satu kepala sekolah.');
+        }
+
         $user->nama_lengkap = $request->nama_lengkap;
         $user->username = $request->username;
         $user->email = $request->email;

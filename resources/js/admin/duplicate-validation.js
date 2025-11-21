@@ -44,6 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const sessionError = document.querySelector('.alert-danger');
     if (sessionError && !sessionError.classList.contains('alert-dismissible')) {
         const errorText = sessionError.textContent.toLowerCase();
+        if (errorText.includes('kepala sekolah sudah ada')) {
+            showBootstrapAlert('Kepala sekolah sudah ada. Hanya boleh ada satu kepala sekolah.');
+            sessionError.remove();
+            return;
+        }
         if (errorText.includes('kelas') && errorText.includes('wali kelas')) {
             return;
         }
