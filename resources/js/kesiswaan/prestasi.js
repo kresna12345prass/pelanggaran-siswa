@@ -18,23 +18,41 @@ $(document).ready(function() {
         },
         pageLength: 10,
         lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
-        // Urutkan berdasarkan Kolom Poin (index 5) secara descending secara default
         order: [[5, 'desc']], 
         columnDefs: [
-            // Non-orderable: No (0) dan Aksi (6)
             { orderable: false, targets: [0, 6] },
-            // Center align: No (0), Kelas (2), Tingkat (4), Poin (5), Aksi (6)
             { className: 'text-center', targets: [0, 2, 4, 5, 6] },
-            // Mencegah kolom aksi turun baris
             { className: 'dt-body-nowrap', targets: 6 }
         ]
     });
     
-    // Penomoran otomatis
     table.on('draw.dt', function() {
         var info = table.page.info();
         table.column(0, { page: 'current' }).nodes().each(function(cell, i) {
             cell.innerHTML = info.start + i + 1;
         });
     });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const deleteModal = document.getElementById('deletePrestasiModal');
+    
+    if (deleteModal) {
+        deleteModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const siswaName = button.getAttribute('data-siswa-name');
+            const deleteUrl = button.getAttribute('data-delete-url');
+            
+            const siswaNameElement = deleteModal.querySelector('#siswaNameToDelete');
+            const deleteForm = deleteModal.querySelector('#deletePrestasiForm');
+            
+            if (siswaNameElement) {
+                siswaNameElement.textContent = siswaName;
+            }
+            
+            if (deleteForm) {
+                deleteForm.setAttribute('action', deleteUrl);
+            }
+        });
+    }
 });

@@ -66,13 +66,14 @@
                                     <a href="{{ route('kesiswaan.prestasi.edit', $p->id) }}" class="btn btn-warning btn-sm" title="Edit">
                                         <i class="fa-solid fa-edit"></i>
                                     </a>
-                                    <form action="{{ route('kesiswaan.prestasi.destroy', $p->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data ini?')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm" title="Hapus">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </form>
+                                    <button class="btn btn-danger btn-sm" 
+                                            title="Hapus" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#deletePrestasiModal"
+                                            data-siswa-name="{{ $p->siswa->nama_siswa }}"
+                                            data-delete-url="{{ route('kesiswaan.prestasi.destroy', $p->id) }}">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
                                 </div>
                             </td>
                         </tr>
@@ -83,6 +84,37 @@
                         @endforelse
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deletePrestasiModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-body text-center p-5">
+                    <div class="mb-4">
+                        <div class="delete-icon-wrapper mx-auto mb-3">
+                            <i class="fa-solid fa-trash-can text-danger" style="font-size: 3rem;"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark mb-2">Hapus Data Prestasi?</h4>
+                        <p class="text-muted mb-0">Data prestasi siswa <strong class="text-danger" id="siswaNameToDelete"></strong> akan dihapus permanen.</p>
+                        <p class="text-muted small">Tindakan ini tidak dapat dibatalkan!</p>
+                    </div>
+                    
+                    <div class="d-flex gap-3 justify-content-center">
+                        <button type="button" class="btn btn-light px-4 py-2" data-bs-dismiss="modal">
+                            <i class="fa-solid fa-times me-2"></i>Batal
+                        </button>
+                        <form id="deletePrestasiForm" method="POST" action="" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger px-4 py-2">
+                                <i class="fa-solid fa-trash me-2"></i>Ya, Hapus
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

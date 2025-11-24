@@ -29,3 +29,26 @@ $(document).ready(function() {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const deleteModal = document.getElementById('deletePelanggaranModal');
+    
+    if (deleteModal) {
+        deleteModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const siswaName = button.getAttribute('data-siswa-name');
+            const deleteUrl = button.getAttribute('data-delete-url');
+            
+            const siswaNameElement = deleteModal.querySelector('#siswaNameToDelete');
+            const deleteForm = deleteModal.querySelector('#deletePelanggaranForm');
+            
+            if (siswaNameElement) {
+                siswaNameElement.textContent = siswaName;
+            }
+            
+            if (deleteForm) {
+                deleteForm.setAttribute('action', deleteUrl);
+            }
+        });
+    }
+});

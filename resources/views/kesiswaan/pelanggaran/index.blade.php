@@ -67,13 +67,15 @@
                                 <a href="{{ route('kesiswaan.pelanggaran.exportPdf', $p->id) }}" class="btn btn-sm btn-secondary" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;" title="Export PDF">
                                     <i class="fa-solid fa-file-pdf"></i>
                                 </a>
-                                <form action="{{ route('kesiswaan.pelanggaran.destroy', $p->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </form>
+                                <button class="btn btn-sm btn-danger" 
+                                        style="font-size: 0.75rem; padding: 0.25rem 0.5rem;"
+                                        title="Hapus" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#deletePelanggaranModal"
+                                        data-siswa-name="{{ $p->siswa->nama_siswa }}"
+                                        data-delete-url="{{ route('kesiswaan.pelanggaran.destroy', $p->id) }}">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
                             </td>
                         </tr>
                         @empty
@@ -83,6 +85,37 @@
                         @endforelse
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deletePelanggaranModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-body text-center p-5">
+                    <div class="mb-4">
+                        <div class="delete-icon-wrapper mx-auto mb-3">
+                            <i class="fa-solid fa-trash-can text-danger" style="font-size: 3rem;"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark mb-2">Hapus Data Pelanggaran?</h4>
+                        <p class="text-muted mb-0">Data pelanggaran siswa <strong class="text-danger" id="siswaNameToDelete"></strong> akan dihapus permanen.</p>
+                        <p class="text-muted small">Tindakan ini tidak dapat dibatalkan!</p>
+                    </div>
+                    
+                    <div class="d-flex gap-3 justify-content-center">
+                        <button type="button" class="btn btn-light px-4 py-2" data-bs-dismiss="modal">
+                            <i class="fa-solid fa-times me-2"></i>Batal
+                        </button>
+                        <form id="deletePelanggaranForm" method="POST" action="" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger px-4 py-2">
+                                <i class="fa-solid fa-trash me-2"></i>Ya, Hapus
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
