@@ -3,7 +3,7 @@
 @section('title', 'Detail Monitoring')
 
 @push('styles')
-    @vite('resources/css/kepsek/monitoring.css')
+    <link rel="stylesheet" href="{{ asset('kepsek/monitoring.css') }}">
 @endpush
 
 @section('content')
@@ -69,5 +69,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/kepsek/monitoring.js')
+    <script src="{{ asset('kepsek/monitoring.js') }}" defer></script>
 @endpush

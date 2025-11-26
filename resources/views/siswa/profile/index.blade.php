@@ -3,7 +3,7 @@
 @section('title', 'Profil Siswa')
 
 @push('styles')
-    @vite('resources/css/siswa/profile.css')
+    <link rel="stylesheet" href="{{ asset('siswa/profile.css') }}">
 @endpush
 
 @section('content')
@@ -110,5 +110,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/siswa/profile.js')
+    <script src="{{ asset('siswa/profile.js') }}" defer></script>
 @endpush

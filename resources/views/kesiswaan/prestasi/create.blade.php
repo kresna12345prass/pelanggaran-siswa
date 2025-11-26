@@ -2,7 +2,7 @@
 @section('title', 'Tambah Prestasi')
 
 @push('styles')
-    @vite('resources/css/kesiswaan/prestasi.css')
+    <link rel="stylesheet" href="{{ asset('kesiswaan/prestasi.css') }}">
 @endpush
 
 @section('content')

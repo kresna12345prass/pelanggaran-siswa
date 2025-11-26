@@ -3,7 +3,7 @@
 @section('title', 'Tambah Guru')
 
 @push('styles')
-    @vite('resources/css/admin/guru.css')
+    <link rel="stylesheet" href="{{ asset('admin/guru.css') }}">
 @endpush
 
 @section('content')

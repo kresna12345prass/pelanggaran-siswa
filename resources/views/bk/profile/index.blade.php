@@ -3,7 +3,7 @@
 @section('title', 'Profil BK')
 
 @push('styles')
-    @vite('resources/css/bk/profile.css')
+    <link rel="stylesheet" href="{{ asset('bk/profile.css') }}">
 @endpush
 
 @section('content')
@@ -61,5 +61,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/bk/profile.js')
+    <script src="{{ asset('bk/profile.js') }}" defer></script>
 @endpush

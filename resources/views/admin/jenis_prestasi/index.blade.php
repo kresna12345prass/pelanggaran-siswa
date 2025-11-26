@@ -3,7 +3,7 @@
 @section('title', 'Manajemen Jenis Prestasi')
 
 @push('styles')
-    @vite('resources/css/admin/jenis_prestasi.css')
+    <link rel="stylesheet" href="{{ asset('admin/jenis_prestasi.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 @endpush
 
@@ -113,5 +113,5 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-    @vite('resources/js/admin/jenis_prestasi.js')
+    <script src="{{ asset('admin/jenis_prestasi.js') }}" defer></script>
 @endpush

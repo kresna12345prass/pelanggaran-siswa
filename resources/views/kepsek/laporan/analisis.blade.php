@@ -3,7 +3,7 @@
 @section('title', 'Analisis Mendalam')
 
 @push('styles')
-    @vite('resources/css/kepsek/laporan.css')
+    <link rel="stylesheet" href="{{ asset('kepsek/laporan.css') }}">
     <style>
         .metric-card { border-left: 4px solid #007bff; }
         .trend-up { color: #28a745; }
@@ -217,5 +217,5 @@
             }
         }
     </script>
-    @vite('resources/js/kepsek/laporan.js')
+    <script src="{{ asset('kepsek/laporan.js') }}" defer></script>
 @endpush

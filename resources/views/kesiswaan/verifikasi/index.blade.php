@@ -2,7 +2,7 @@
 @section('title', 'Verifikasi Laporan')
 
 @push('styles')
-    @vite('resources/css/kesiswaan/verifikasi.css')
+    <link rel="stylesheet" href="{{ asset('kesiswaan/verifikasi.css') }}">
 @endpush
 
 @section('content')
@@ -129,5 +129,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/kesiswaan/verifikasi.js')
+    <script src="{{ asset('kesiswaan/verifikasi.js') }}" defer></script>
 @endpush

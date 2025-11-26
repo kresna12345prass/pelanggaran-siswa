@@ -3,7 +3,7 @@
 @section('title', 'Detail Riwayat Laporan')
 
 @push('styles')
-    @vite('resources/css/guru/riwayat.css')
+    <link rel="stylesheet" href="{{ asset('guru/riwayat.css') }}">
 @endpush
 
 @section('content')
@@ -121,5 +121,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/guru/riwayat.js')
+    <script src="{{ asset('guru/riwayat.js') }}" defer></script>
 @endpush

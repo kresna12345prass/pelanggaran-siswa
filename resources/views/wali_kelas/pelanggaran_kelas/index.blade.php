@@ -3,7 +3,7 @@
 @section('title', 'Data Pelanggaran Kelas')
 
 @push('styles')
-    @vite('resources/css/wali_kelas/pelanggaran_kelas.css')
+    <link rel="stylesheet" href="{{ asset('wali_kelas/pelanggaran_kelas.css') }}">
 @endpush
 
 @section('content')
@@ -73,5 +73,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/wali_kelas/pelanggaran_kelas.js')
+    <script src="{{ asset('wali_kelas/pelanggaran_kelas.js') }}" defer></script>
 @endpush

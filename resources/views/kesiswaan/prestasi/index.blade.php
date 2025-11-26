@@ -2,7 +2,7 @@
 @section('title', 'Data Prestasi')
 
 @push('styles')
-    @vite('resources/css/kesiswaan/prestasi.css')
+    <link rel="stylesheet" href="{{ asset('kesiswaan/prestasi.css') }}">
 @endpush
 
 @section('content')
@@ -122,5 +122,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/kesiswaan/prestasi.js')
+    <script src="{{ asset('kesiswaan/prestasi.js') }}" defer></script>
 @endpush

@@ -3,7 +3,7 @@
 @section('title', 'Profil Orang Tua')
 
 @push('styles')
-    @vite('resources/css/ortu/profile.css')
+    <link rel="stylesheet" href="{{ asset('ortu/profile.css') }}">
 @endpush
 
 @section('content')
@@ -120,5 +120,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/ortu/profile.js')
+    <script src="{{ asset('ortu/profile.js') }}" defer></script>
 @endpush

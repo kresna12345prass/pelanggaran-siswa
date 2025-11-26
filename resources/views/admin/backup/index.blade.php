@@ -3,7 +3,7 @@
 @section('title', 'Backup Database')
 
 @push('styles')
-    @vite('resources/css/admin/backup.css')
+    <link rel="stylesheet" href="{{ asset('admin/backup.css') }}">
 @endpush
 
 @section('content')
@@ -132,5 +132,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/admin/backup.js')
+    <script src="{{ asset('admin/backup.js') }}" defer></script>
 @endpush

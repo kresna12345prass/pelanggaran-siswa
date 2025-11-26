@@ -1,0 +1,173 @@
+/* =========================================
+ * CSS ADMIN - ORANGTUA.CSS
+ ========================================= */
+
+/* 1. IMPORT DATATABLES BOOTSTRAP 5 CSS */
+/* 2. STYLE KUSTOM TABEL */
+.orangtua-table {
+    vertical-align: middle;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+.orangtua-table th {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #495057;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    white-space: nowrap;
+    padding: 0.75rem;
+}
+.orangtua-table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+}
+.orangtua-table tbody tr {
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+.orangtua-table tbody tr:hover {
+    background-color: #f8f9fc;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.table .text-center {
+    text-align: center !important;
+}
+
+/* Tombol Aksi */
+.action-buttons {
+    display: flex;
+    gap: 0.35rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.action-buttons .btn {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+}
+
+.action-buttons .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.action-buttons .btn i { 
+    font-size: 0.7rem;
+    line-height: 1;
+}
+
+.action-buttons .btn-info { 
+    background-color: #0dcaf0; 
+    border-color: #0dcaf0; 
+    color: white; 
+}
+
+.action-buttons .btn-info:hover { 
+    background-color: #0aa7c2; 
+    border-color: #0aa7c2; 
+}
+
+/* Card Header Gradient */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+    border: none;
+}
+
+
+/* Form Card */
+.orangtua-form-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+.orangtua-form-card .card-header {
+    background: linear-gradient(135deg, #198754 0%, #146c43 100%);
+    color: white;
+    border: none;
+}
+.orangtua-form-card .card-header h6 {
+    color: white !important;
+}
+.orangtua-form-card .form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+.orangtua-form-card .form-control,
+.orangtua-form-card .form-select {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    padding: 0.6rem 0.75rem;
+    transition: all 0.2s ease;
+}
+.orangtua-form-card .form-control:focus,
+.orangtua-form-card .form-select:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
+}
+
+/* Card Halaman Show (Detail) */
+.orangtua-detail-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+.orangtua-detail-card .card-header {
+    border-bottom: 2px solid #e9ecef;
+    background-color: #f8f9fa;
+}
+.detail-item {
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+.detail-item:hover {
+    background: #e9ecef;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .orangtua-table {
+        font-size: 0.85rem;
+    }
+    
+    .orangtua-table th,
+    .orangtua-table td {
+        padding: 0.5rem;
+    }
+    
+    .action-buttons .btn {
+        padding: 0.35rem 0.5rem;
+        min-width: 28px;
+    }
+    
+    .orangtua-form-card .form-select,
+    .orangtua-form-card .form-control {
+        font-size: 0.875rem;
+        padding: 0.5rem !important;
+    }
+    
+    .orangtua-form-card .form-label {
+        font-size: 0.875rem;
+    }
+}
+.detail-item small {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.detail-item strong {
+    font-size: 0.95rem;
+    color: #212529;
+}

@@ -3,7 +3,7 @@
 @section('title', 'Editor Tata Tertib')
 
 @push('styles')
-    @vite('resources/css/admin/tata_tertib.css')
+    <link rel="stylesheet" href="{{ asset('admin/tata_tertib.css') }}">
 @endpush
 
 @section('content')
@@ -113,5 +113,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/admin/tata_tertib.js')
+    <script src="{{ asset('admin/tata_tertib.js') }}" defer></script>
 @endpush

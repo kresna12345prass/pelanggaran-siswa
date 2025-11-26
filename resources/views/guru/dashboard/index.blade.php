@@ -3,7 +3,7 @@
 @section('title', 'Dashboard Guru')
 
 @push('styles')
-    @vite('resources/css/guru/dashboard.css')
+    <link rel="stylesheet" href="{{ asset('guru/dashboard.css') }}">
 @endpush
 
 @section('content')
@@ -92,5 +92,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/guru/dashboard.js')
+    <script src="{{ asset('guru/dashboard.js') }}" defer></script>
 @endpush

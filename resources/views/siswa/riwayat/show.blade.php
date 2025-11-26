@@ -3,7 +3,7 @@
 @section('title', 'Detail Pelanggaran')
 
 @push('styles')
-    @vite('resources/css/siswa/riwayat.css')
+    <link rel="stylesheet" href="{{ asset('siswa/riwayat.css') }}">
 @endpush
 
 @section('content')
@@ -69,5 +69,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/siswa/riwayat.js')
+    <script src="{{ asset('siswa/riwayat.js') }}" defer></script>
 @endpush

@@ -3,7 +3,7 @@
 @section('title', 'Edit Aturan Sanksi')
 
 @push('styles')
-    @vite('resources/css/admin/aturan_sanksi.css')
+    <link rel="stylesheet" href="{{ asset('admin/aturan_sanksi.css') }}">
 @endpush
 
 @section('content')

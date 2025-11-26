@@ -3,7 +3,7 @@
 @section('title', 'Manajemen Pengguna')
 
 @push('styles')
-    @vite('resources/css/admin/users.css')
+    <link rel="stylesheet" href="{{ asset('admin/users.css') }}">
 @endpush
 
 @section('content')
@@ -138,5 +138,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/admin/users.js')
+    <script src="{{ asset('admin/users.js') }}" defer></script>
 @endpush

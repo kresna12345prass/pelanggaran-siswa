@@ -3,7 +3,7 @@
 @section('title', 'Monitoring Verifikasi Pelanggaran')
 
 @push('styles')
-    @vite('resources/css/kepsek/verifikasi_monitoring.css')
+    <link rel="stylesheet" href="{{ asset('kepsek/verifikasi_monitoring.css') }}">
 @endpush
 
 @section('content')
@@ -135,5 +135,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/kepsek/verifikasi_monitoring.js')
+    <script src="{{ asset('kepsek/verifikasi_monitoring.js') }}" defer></script>
 @endpush

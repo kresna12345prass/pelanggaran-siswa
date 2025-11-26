@@ -3,7 +3,7 @@
 @section('title', 'Detail Prestasi')
 
 @push('styles')
-    @vite('resources/css/siswa/prestasi.css')
+    <link rel="stylesheet" href="{{ asset('siswa/prestasi.css') }}">
 @endpush
 
 @section('content')
@@ -111,5 +111,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/siswa/prestasi.js')
+    <script src="{{ asset('siswa/prestasi.js') }}" defer></script>
 @endpush

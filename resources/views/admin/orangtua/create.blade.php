@@ -3,7 +3,7 @@
 @section('title', 'Tambah Orang Tua Baru')
 
 @push('styles')
-    @vite('resources/css/admin/orangtua.css')
+    <link rel="stylesheet" href="{{ asset('admin/orangtua.css') }}">
 @endpush
 
 @section('content')

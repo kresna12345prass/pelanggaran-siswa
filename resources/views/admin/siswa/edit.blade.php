@@ -3,7 +3,7 @@
 @section('title', 'Edit Siswa')
 
 @push('styles')
-    @vite('resources/css/admin/siswa.css')
+    <link rel="stylesheet" href="{{ asset('admin/siswa.css') }}">
 @endpush
 
 @section('content')

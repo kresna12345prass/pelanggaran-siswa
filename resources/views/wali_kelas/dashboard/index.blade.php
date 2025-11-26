@@ -3,7 +3,7 @@
 @section('title', 'Dashboard Wali Kelas')
 
 @push('styles')
-    @vite('resources/css/wali_kelas/dashboard.css')
+    <link rel="stylesheet" href="{{ asset('wali_kelas/dashboard.css') }}">
 @endpush
 
 @section('content')
@@ -223,5 +223,5 @@
             }
         });
     </script>
-    @vite('resources/js/wali_kelas/dashboard.js')
+    <script src="{{ asset('wali_kelas/dashboard.js') }}" defer></script>
 @endpush

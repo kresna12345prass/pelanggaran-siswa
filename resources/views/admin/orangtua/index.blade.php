@@ -3,7 +3,7 @@
 @section('title', 'Manajemen Orang Tua')
 
 @push('styles')
-    @vite('resources/css/admin/orangtua.css')
+    <link rel="stylesheet" href="{{ asset('admin/orangtua.css') }}">
 @endpush
 
 @section('content')
@@ -117,5 +117,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/admin/orangtua.js')
+    <script src="{{ asset('admin/orangtua.js') }}" defer></script>
 @endpush

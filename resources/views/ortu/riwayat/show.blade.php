@@ -3,7 +3,7 @@
 @section('title', 'Detail Pelanggaran')
 
 @push('styles')
-    @vite('resources/css/ortu/riwayat.css')
+    <link rel="stylesheet" href="{{ asset('ortu/riwayat.css') }}">
 @endpush
 
 @section('content')
@@ -101,5 +101,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/ortu/riwayat.js')
+    <script src="{{ asset('ortu/riwayat.js') }}" defer></script>
 @endpush

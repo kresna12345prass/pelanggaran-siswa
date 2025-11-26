@@ -3,7 +3,7 @@
 
 {{-- Menggunakan CSS yang sama dengan halaman Update Pelaksanaan --}}
 @push('styles')
-    @vite('resources/css/kesiswaan/pelaksanaan.css')
+    <link rel="stylesheet" href="{{ asset('kesiswaan/pelaksanaan.css') }}">
 @endpush
 
 @section('content')
@@ -70,5 +70,5 @@
 
 {{-- Menggunakan JS yang sama dengan halaman Update Pelaksanaan --}}
 @push('scripts')
-    @vite('resources/js/kesiswaan/pelaksanaan.js')
+    <script src="{{ asset('kesiswaan/pelaksanaan.js') }}" defer></script>
 @endpush

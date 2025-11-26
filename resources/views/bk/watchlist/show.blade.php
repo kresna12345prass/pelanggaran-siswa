@@ -3,7 +3,7 @@
 @section('title', 'Detail Siswa')
 
 @push('styles')
-    @vite('resources/css/bk/watchlist.css')
+    <link rel="stylesheet" href="{{ asset('bk/watchlist.css') }}">
 @endpush
 
 @section('content')
@@ -97,5 +97,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/bk/watchlist.js')
+    <script src="{{ asset('bk/watchlist.js') }}" defer></script>
 @endpush

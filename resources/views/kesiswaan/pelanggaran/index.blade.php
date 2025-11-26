@@ -2,7 +2,7 @@
 @section('title', 'Data Pelanggaran')
 
 @push('styles')
-    @vite('resources/css/kesiswaan/pelanggaran.css')
+    <link rel="stylesheet" href="{{ asset('kesiswaan/pelanggaran.css') }}">
 @endpush
 
 @section('content')
@@ -123,5 +123,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/kesiswaan/pelanggaran.js')
+    <script src="{{ asset('kesiswaan/pelanggaran.js') }}" defer></script>
 @endpush

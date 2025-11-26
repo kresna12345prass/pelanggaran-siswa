@@ -3,7 +3,7 @@
 @section('title', 'Detail Konseling')
 
 @push('styles')
-    @vite('resources/css/bk/konseling.css')
+    <link rel="stylesheet" href="{{ asset('bk/konseling.css') }}">
 @endpush
 
 @section('content')
@@ -104,5 +104,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/bk/konseling.js')
+    <script src="{{ asset('bk/konseling.js') }}" defer></script>
 @endpush

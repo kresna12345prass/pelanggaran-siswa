@@ -2,7 +2,7 @@
 @section('title', 'Tetapkan Sanksi')
 
 @push('styles')
-    @vite('resources/css/kesiswaan/sanksi.css')
+    <link rel="stylesheet" href="{{ asset('kesiswaan/sanksi.css') }}">
 @endpush
 
 @section('content')
@@ -139,5 +139,5 @@
 
 @push('scripts')
     {{-- Gunakan Vite untuk JS --}}
-    @vite('resources/js/kesiswaan/sanksi.js')
+    <script src="{{ asset('kesiswaan/sanksi.js') }}" defer></script>
 @endpush

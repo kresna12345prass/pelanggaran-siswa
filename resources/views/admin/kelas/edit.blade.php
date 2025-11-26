@@ -3,7 +3,7 @@
 @section('title', 'Edit Kelas')
 
 @push('styles')
-    @vite('resources/css/admin/kelas.css')
+    <link rel="stylesheet" href="{{ asset('admin/kelas.css') }}">
 @endpush
 
 @section('content')
@@ -79,5 +79,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/admin/kelas.js')
+    <script src="{{ asset('admin/kelas.js') }}" defer></script>
 @endpush

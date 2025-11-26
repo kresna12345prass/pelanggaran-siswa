@@ -3,7 +3,7 @@
 @section('title', 'Tambah Tata Tertib')
 
 @push('styles')
-    @vite('resources/css/admin/tata_tertib.css')
+    <link rel="stylesheet" href="{{ asset('admin/tata_tertib.css') }}">
 @endpush
 
 @section('content')

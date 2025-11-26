@@ -3,7 +3,7 @@
 @section('title', 'Detail Sanksi')
 
 @push('styles')
-    @vite('resources/css/wali_kelas/laporan.css')
+    <link rel="stylesheet" href="{{ asset('wali_kelas/laporan.css') }}">
 @endpush
 
 @section('content')

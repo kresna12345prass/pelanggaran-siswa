@@ -3,7 +3,7 @@
 @section('title', 'Monitoring Real-time')
 
 @push('styles')
-    @vite('resources/css/kepsek/laporan.css')
+    <link rel="stylesheet" href="{{ asset('kepsek/laporan.css') }}">
     <style>
         .status-aktif { border-left: 4px solid #28a745; }
         .status-proses { border-left: 4px solid #ffc107; }
@@ -270,5 +270,5 @@
             refreshData();
         }, 300000);
     </script>
-    @vite('resources/js/kepsek/laporan.js')
+    <script src="{{ asset('kepsek/laporan.js') }}" defer></script>
 @endpush

@@ -3,7 +3,7 @@
 @section('title', 'Manajemen Aturan Pelanggaran')
 
 @push('styles')
-    @vite('resources/css/admin/aturan_pelanggaran.css')
+    <link rel="stylesheet" href="{{ asset('admin/aturan_pelanggaran.css') }}">
 @endpush
 
 @section('content')
@@ -117,5 +117,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/admin/aturan_pelanggaran.js')
+    <script src="{{ asset('admin/aturan_pelanggaran.js') }}" defer></script>
 @endpush

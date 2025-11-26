@@ -3,7 +3,7 @@
 @section('title', 'Detail Tahun Ajaran: ' . $tahun_ajaran->tahun_ajaran)
 
 @push('styles')
-    @vite('resources/css/admin/tahun_ajaran.css')
+    <link rel="stylesheet" href="{{ asset('admin/tahun_ajaran.css') }}">
 @endpush
 
 @section('content')

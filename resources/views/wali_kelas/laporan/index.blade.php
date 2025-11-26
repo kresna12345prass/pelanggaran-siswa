@@ -3,7 +3,7 @@
 @section('title', 'Laporan Pelanggaran')
 
 @push('styles')
-    @vite('resources/css/wali_kelas/laporan.css')
+    <link rel="stylesheet" href="{{ asset('wali_kelas/laporan.css') }}">
 @endpush
 
 @section('content')
@@ -121,5 +121,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/wali_kelas/laporan.js')
+    <script src="{{ asset('wali_kelas/laporan.js') }}" defer></script>
 @endpush

@@ -3,7 +3,7 @@
 @section('title', 'Dashboard BK')
 
 @push('styles')
-    @vite('resources/css/bk/dashboard.css')
+    <link rel="stylesheet" href="{{ asset('bk/dashboard.css') }}">
     <style>
         .chart-container {
             position: relative;
@@ -92,7 +92,7 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/bk/dashboard.js')
+    <script src="{{ asset('bk/dashboard.js') }}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         const ctx = document.getElementById('pelanggaranChart');

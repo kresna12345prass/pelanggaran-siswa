@@ -3,7 +3,7 @@
 @section('title', 'Detail Orang Tua: ' . ($orangtua->user->nama_lengkap ?? 'N/A'))
 
 @push('styles')
-    @vite('resources/css/admin/orangtua.css')
+    <link rel="stylesheet" href="{{ asset('admin/orangtua.css') }}">
 @endpush
 
 @section('content')

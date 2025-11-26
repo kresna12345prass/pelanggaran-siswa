@@ -3,7 +3,7 @@
 @section('title', 'Manajemen Tahun Ajaran')
 
 @push('styles')
-    @vite('resources/css/admin/tahun_ajaran.css')
+    <link rel="stylesheet" href="{{ asset('admin/tahun_ajaran.css') }}">
 @endpush
 
 @section('content')
@@ -123,5 +123,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/admin/tahun_ajaran.js')
+    <script src="{{ asset('admin/tahun_ajaran.js') }}" defer></script>
 @endpush

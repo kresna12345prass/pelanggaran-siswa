@@ -3,7 +3,7 @@
 @section('title', 'Detail Laporan Pelanggaran')
 
 @push('styles')
-    @vite('resources/css/guru/laporan.css')
+    <link rel="stylesheet" href="{{ asset('guru/laporan.css') }}">
 @endpush
 
 @section('content')
@@ -137,5 +137,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/guru/laporan.js')
+    <script src="{{ asset('guru/laporan.js') }}" defer></script>
 @endpush

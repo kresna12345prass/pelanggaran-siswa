@@ -2,7 +2,7 @@
 @section('title', 'Dashboard Kesiswaan')
 
 @push('styles')
-    @vite('resources/css/kesiswaan/dashboard.css')
+    <link rel="stylesheet" href="{{ asset('kesiswaan/dashboard.css') }}">
 @endpush
 
 @section('content')
@@ -109,5 +109,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/kesiswaan/dashboard.js')
+    <script src="{{ asset('kesiswaan/dashboard.js') }}" defer></script>
 @endpush

@@ -3,7 +3,7 @@
 @section('title', 'Monitoring Siswa Bermasalah')
 
 @push('styles')
-    @vite('resources/css/kepsek/siswa_bermasalah.css')
+    <link rel="stylesheet" href="{{ asset('kepsek/siswa_bermasalah.css') }}">
 @endpush
 
 @section('content')
@@ -69,5 +69,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/kepsek/siswa_bermasalah.js')
+    <script src="{{ asset('kepsek/siswa_bermasalah.js') }}" defer></script>
 @endpush

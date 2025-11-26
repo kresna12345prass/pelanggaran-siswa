@@ -3,7 +3,7 @@
 @section('title', 'Detail Kelas: ' . $kelas->nama_kelas)
 
 @push('styles')
-    @vite('resources/css/admin/kelas.css')
+    <link rel="stylesheet" href="{{ asset('admin/kelas.css') }}">
 @endpush
 
 @section('content')

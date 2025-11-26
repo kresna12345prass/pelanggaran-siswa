@@ -4,7 +4,7 @@
 
 @push('styles')
     {{-- Cukup panggil vite saja, import datatables sudah ada di dalam file css --}}
-    @vite('resources/css/admin/wali_kelas.css')
+    <link rel="stylesheet" href="{{ asset('admin/wali_kelas.css') }}">
 @endpush
 
 @section('content')
@@ -121,5 +121,5 @@
 
 @push('scripts')
     {{-- JS juga disamakan cara panggilnya, import library via file JS --}}
-    @vite('resources/js/admin/wali_kelas.js')
+    <script src="{{ asset('admin/wali_kelas.js') }}" defer></script>
 @endpush

@@ -3,7 +3,7 @@
 @section('title', 'Dashboard Kepala Sekolah')
 
 @push('styles')
-    @vite('resources/css/kepsek/dashboard.css')
+    <link rel="stylesheet" href="{{ asset('kepsek/dashboard.css') }}">
 @endpush
 
 @section('content')
@@ -118,5 +118,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/kepsek/dashboard.js')
+    <script src="{{ asset('kepsek/dashboard.js') }}" defer></script>
 @endpush

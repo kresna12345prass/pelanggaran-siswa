@@ -4,7 +4,7 @@
 
 @push('styles')
     <!-- Panggil CSS khusus untuk halaman ini -->
-    @vite('resources/css/admin/dashboard.css')
+    <link rel="stylesheet" href="{{ asset('admin/dashboard.css') }}">
 @endpush
 
 @section('content')
@@ -289,5 +289,5 @@
 @push('scripts')
     <!-- Panggil Chart.js (pastikan sudah di-install: npm install chart.js) -->
     <!-- Panggil JS khusus untuk halaman ini -->
-    @vite('resources/js/admin/dashboard.js')
+    <script src="{{ asset('admin/dashboard.js') }}" defer></script>
 @endpush

@@ -3,7 +3,7 @@
 @section('title', 'Data Prestasi')
 
 @push('styles')
-    @vite('resources/css/ortu/prestasi.css')
+    <link rel="stylesheet" href="{{ asset('ortu/prestasi.css') }}">
 @endpush
 
 @section('content')
@@ -71,5 +71,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/ortu/prestasi.js')
+    <script src="{{ asset('ortu/prestasi.js') }}" defer></script>
 @endpush

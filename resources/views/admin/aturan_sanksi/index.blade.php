@@ -3,7 +3,7 @@
 @section('title', 'Manajemen Aturan Sanksi')
 
 @push('styles')
-    @vite('resources/css/admin/aturan_sanksi.css')
+    <link rel="stylesheet" href="{{ asset('admin/aturan_sanksi.css') }}">
 @endpush
 
 @section('content')
@@ -119,5 +119,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/admin/aturan_sanksi.js')
+    <script src="{{ asset('admin/aturan_sanksi.js') }}" defer></script>
 @endpush
