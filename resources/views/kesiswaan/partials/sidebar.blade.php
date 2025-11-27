@@ -65,11 +65,5 @@
                 Riwayat Pelaksanaan
             </a>
         </li>
-        <li class="nav-item {{ request()->routeIs('kesiswaan.monitoring.*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('kesiswaan.monitoring.index') }}">
-                <i class="fa-solid fa-tasks"></i>
-                Monitoring Sanksi
-            </a>
-        </li>
     </ul>
 </nav>

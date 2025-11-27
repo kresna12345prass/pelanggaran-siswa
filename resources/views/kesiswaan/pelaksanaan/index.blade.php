@@ -43,9 +43,9 @@
                         @forelse($sanksiAktif as $sanksi)
                         <tr>
                             <td class="text-center">{{ $loop->iteration }}</td>
-                            <td>{{ $sanksi->pelanggaran->siswa->nis }}</td>
-                            <td><strong>{{ $sanksi->pelanggaran->siswa->nama_siswa }}</strong></td>
-                            <td class="text-center"><span class="badge bg-info">{{ $sanksi->pelanggaran->siswa->kelas->nama_kelas ?? '-' }}</span></td>
+                            <td>{{ $sanksi->siswa->nis ?? ($sanksi->pelanggaran->siswa->nis ?? '-') }}</td>
+                            <td><strong>{{ $sanksi->siswa->nama_siswa ?? ($sanksi->pelanggaran->siswa->nama_siswa ?? '-') }}</strong></td>
+                            <td class="text-center"><span class="badge bg-info">{{ $sanksi->siswa->kelas->nama_kelas ?? ($sanksi->pelanggaran->siswa->kelas->nama_kelas ?? '-') }}</span></td>
                             <td>{{ $sanksi->jenis_sanksi }}</td>
                             <td>{{ \Carbon\Carbon::parse($sanksi->tanggal_mulai)->format('d/m/Y') }}</td>
                             <td class="text-center">
@@ -73,7 +73,7 @@
                                         <div class="modal-body">
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold">Siswa:</label>
-                                                <p class="mb-0">{{ $sanksi->pelanggaran->siswa->nama_siswa }} ({{ $sanksi->pelanggaran->siswa->nis }})</p>
+                                                <p class="mb-0">{{ $sanksi->siswa->nama_siswa ?? ($sanksi->pelanggaran->siswa->nama_siswa ?? '-') }} ({{ $sanksi->siswa->nis ?? ($sanksi->pelanggaran->siswa->nis ?? '-') }})</p>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold">Jenis Sanksi:</label>

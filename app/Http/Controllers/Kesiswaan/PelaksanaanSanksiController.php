@@ -14,7 +14,7 @@ class PelaksanaanSanksiController extends Controller
     // Menampilkan halaman daftar sanksi aktif
     public function index()
     {
-        $sanksiAktif = DataSanksi::with(['pelanggaran.siswa.kelas', 'userPenetap'])
+        $sanksiAktif = DataSanksi::with(['siswa.kelas', 'pelanggaran.siswa.kelas', 'userPenetap'])
             ->whereIn('status_sanksi', ['pending', 'berjalan'])
             ->orderBy('tanggal_mulai', 'desc')
             ->get();

@@ -220,13 +220,11 @@ Route::middleware(['auth', 'kesiswaan'])->prefix('kesiswaan')->name('kesiswaan.'
     
     // Data Sanksi (Full CRUD)
     Route::get('sanksi-export', [\App\Http\Controllers\Kesiswaan\SanksiController::class, 'export'])->name('sanksi.export');
+    Route::get('sanksi/siswa-info/{siswa}', [\App\Http\Controllers\Kesiswaan\SanksiController::class, 'getSiswaInfo'])->name('sanksi.siswa-info');
     Route::resource('sanksi', \App\Http\Controllers\Kesiswaan\SanksiController::class);
     Route::get('/sanksi/{sanksi}/cetak-panggilan', [\App\Http\Controllers\Kesiswaan\SanksiController::class, 'cetakPanggilan'])->name('sanksi.cetak-panggilan');
     Route::get('/sanksi/{sanksi}/cetak-skorsing', [\App\Http\Controllers\Kesiswaan\SanksiController::class, 'cetakSkorsing'])->name('sanksi.cetak-skorsing');
     Route::get('/sanksi/{sanksi}/cetak-peringatan', [\App\Http\Controllers\Kesiswaan\SanksiController::class, 'cetakPeringatan'])->name('sanksi.cetak-peringatan');
-    
-    // Monitoring Sanksi (Resource)
-    Route::resource('monitoring', \App\Http\Controllers\Kesiswaan\MonitoringController::class)->except(['create', 'store', 'edit', 'destroy']);
     
     // Data Prestasi (Full CRUD)
     Route::get('prestasi-export', [\App\Http\Controllers\Kesiswaan\PrestasiController::class, 'export'])->name('prestasi.export');

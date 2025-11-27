@@ -86,3 +86,59 @@
         font-size: 2rem;
     }
 }
+
+.chart-container {
+    position: relative;
+    height: 400px; /* Adjust as needed */
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+/* Ensure charts are responsive within their containers */
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Card styling for charts */
+.card {
+    border: 1px solid #e8ecef;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    margin-bottom: 1.5rem;
+    background: #ffffff;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e8ecef;
+    padding: 1rem 1.5rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-title {
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 0;
+    font-size: 1.25rem;
+}
+
+/* Responsive adjustments for chart containers */
+@media (max-width: 992px) {
+    .chart-container {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .chart-container {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .chart-container {
+        height: 250px;
+    }
+}

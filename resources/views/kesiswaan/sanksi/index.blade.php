@@ -49,18 +49,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($sanksis as $sanksi)
+                        @forelse($sanksi as $s)
                         <tr>
                             <td class="text-center">{{ $loop->iteration }}</td>
-                            <td><strong>{{ $sanksi->pelanggaran->siswa->nama_siswa }}</strong></td>
-                            <td class="text-center"><span class="badge bg-info">{{ $sanksi->pelanggaran->siswa->kelas->nama_kelas ?? '-' }}</span></td>
-                            <td>{{ $sanksi->jenis_sanksi }}</td>
+                            <td><strong>{{ $s->siswa->nama_siswa ?? '-' }}</strong></td>
+                            <td class="text-center"><span class="badge bg-info">{{ $s->siswa->kelas->nama_kelas ?? '-' }}</span></td>
+                            <td>
+                                {{ $s->jenis_sanksi }}
+                                @if($s->kategoriSanksi)
+                                    <br><small class="text-muted">{{ $s->kategoriSanksi->kategori }} - {{ $s->kategoriSanksi->pasal }}</small>
+                                @endif
+                            </td>
                             <td class="text-center">
-                                @if($sanksi->status_sanksi == 'berjalan')
+                                @if($s->status_sanksi == 'berjalan')
                                     <span class="badge bg-warning">Berjalan</span>
-                                @elseif($sanksi->status_sanksi == 'selesai')
+                                @elseif($s->status_sanksi == 'selesai')
                                     <span class="badge bg-success">Selesai</span>
-                                @elseif($sanksi->status_sanksi == 'terlambat')
+                                @elseif($s->status_sanksi == 'terlambat')
                                     <span class="badge bg-danger">Terlambat</span>
                                 @else
                                     <span class="badge bg-secondary">Pending</span>
@@ -68,22 +73,19 @@
                             </td>
                             <td class="text-center">
                                 <div class="action-buttons">
-                                    <a href="{{ route('kesiswaan.sanksi.show', $sanksi->id) }}" class="btn btn-info btn-sm" title="Detail">
+                                    <a href="{{ route('kesiswaan.sanksi.show', $s->id) }}" class="btn btn-info btn-sm" title="Detail">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('kesiswaan.sanksi.edit', $sanksi->id) }}" class="btn btn-warning btn-sm" title="Edit">
+                                    <a href="{{ route('kesiswaan.sanksi.edit', $s->id) }}" class="btn btn-warning btn-sm" title="Edit">
                                         <i class="fa-solid fa-pencil-alt"></i>
                                     </a>
-                                    <div class="btn-group">
-                                        <button class="btn btn-danger btn-sm dropdown-toggle" data-bs-toggle="dropdown" title="Cetak">
-                                            <i class="fa-solid fa-file-pdf"></i>
+                                    <form action="{{ route('kesiswaan.sanksi.destroy', $s->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus sanksi ini?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm" title="Hapus">
+                                            <i class="fa-solid fa-trash"></i>
                                         </button>
-                                        <ul class="dropdown-menu shadow-sm">
-                                            <li><a class="dropdown-item" href="{{ route('kesiswaan.sanksi.cetak-peringatan', $sanksi->id) }}" target="_blank">Surat Peringatan</a></li>
-                                            <li><a class="dropdown-item" href="{{ route('kesiswaan.sanksi.cetak-panggilan', $sanksi->id) }}" target="_blank">Surat Panggilan</a></li>
-                                            <li><a class="dropdown-item" href="{{ route('kesiswaan.sanksi.cetak-skorsing', $sanksi->id) }}" target="_blank">Surat Skorsing</a></li>
-                                        </ul>
-                                    </div>
+                                    </form>
                                 </div>
                             </td>
                         </tr>

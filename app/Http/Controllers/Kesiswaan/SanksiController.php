@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Kesiswaan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{DataSanksi, Pelanggaran, Siswa, MasterSanksiBertahap};
+use App\Models\{DataSanksi, Pelanggaran, Siswa, MasterSanksiBertahap, MasterKategoriSanksi};
 use Barryvdh\DomPDF\Facade\Pdf;
 use Shuchkin\SimpleXLSXGen;
 
@@ -13,57 +13,41 @@ class SanksiController extends Controller
     // Menampilkan halaman daftar sanksi
     public function index()
     {
-        $sanksis = DataSanksi::with(['pelanggaran.siswa.kelas'])->latest()->get();
-        $masterSanksi = MasterSanksiBertahap::orderBy('poin_minimal')->get();
+        $sanksi = DataSanksi::with(['siswa.kelas', 'kategoriSanksi', 'userPenetap'])
+            ->latest()
+            ->paginate(20);
 
-        return view('kesiswaan.sanksi.index', compact('sanksis', 'masterSanksi'));
+        return view('kesiswaan.sanksi.index', compact('sanksi'));
     }
 
     // Menampilkan form untuk menetapkan sanksi baru
     public function create()
     {
-        $siswas = Siswa::with(['kelas', 'pelanggaran' => function($q) {
-                $q->where('status_verifikasi', 'diverifikasi');
-            }])
-            ->withSum(['pelanggaran as total_poin' => function($q) {
-                $q->where('status_verifikasi', 'diverifikasi');
-            }], 'poin')
-            ->having('total_poin', '>', 0)
-            ->orderBy('total_poin', 'desc')
-            ->get();
+        $siswa = Siswa::with('kelas')->orderBy('nama_siswa')->get();
+        $kategoriSanksi = MasterKategoriSanksi::orderBy('poin_min')->get();
 
-        $masterSanksi = MasterSanksiBertahap::orderBy('poin_minimal')->get();
-
-        return view('kesiswaan.sanksi.create', compact('siswas', 'masterSanksi'));
+        return view('kesiswaan.sanksi.create', compact('siswa', 'kategoriSanksi'));
     }
 
     // Menyimpan data sanksi baru ke database
     public function store(Request $request)
     {
-        $request->validate([
-            'pelanggaran_id' => 'required|exists:pelanggaran,id',
+        $validated = $request->validate([
+            'siswa_id' => 'required|exists:siswa,id',
+            'kategori_sanksi_id' => 'required|exists:master_kategori_sanksi,id',
             'jenis_sanksi' => 'required|string',
             'deskripsi_hukuman' => 'required|string',
             'tanggal_mulai' => 'required|date',
             'tanggal_selesai' => 'nullable|date|after_or_equal:tanggal_mulai'
         ]);
 
-        // Mengecek apakah siswa perlu konseling
-        $pelanggaran = Pelanggaran::with('siswa')->findOrFail($request->pelanggaran_id);
-        $perluKonseling = $this->cekPerluKonseling($request->jenis_sanksi, $pelanggaran->siswa_id);
+        $validated['user_penetap'] = auth()->id();
+        $validated['status_sanksi'] = 'pending';
 
-        DataSanksi::create([
-            'pelanggaran_id' => $request->pelanggaran_id,
-            'user_penetap' => auth()->id(),
-            'jenis_sanksi' => $request->jenis_sanksi,
-            'deskripsi_hukuman' => $request->deskripsi_hukuman,
-            'tanggal_mulai' => $request->tanggal_mulai,
-            'tanggal_selesai' => $request->tanggal_selesai,
-            'status_sanksi' => 'berjalan',
-            'perlu_konseling' => $perluKonseling
-        ]);
+        DataSanksi::create($validated);
 
-        return redirect()->route('kesiswaan.sanksi.index')->with('success', 'Sanksi berhasil ditetapkan');
+        return redirect()->route('kesiswaan.sanksi.index')
+            ->with('success', 'Sanksi berhasil ditambahkan');
     }
 
     // Mengecek apakah sanksi memerlukan konseling
@@ -86,21 +70,26 @@ class SanksiController extends Controller
     // Menampilkan detail sanksi
     public function show($id)
     {
-        $sanksi = DataSanksi::with(['pelanggaran.siswa.kelas', 'pelanggaran.jenisPelanggaran', 'pelaksanaan'])->findOrFail($id);
+        $sanksi = DataSanksi::with(['siswa.kelas', 'kategoriSanksi', 'pelanggaran.jenisPelanggaran', 'pelaksanaan'])
+            ->findOrFail($id);
         return view('kesiswaan.sanksi.show', compact('sanksi'));
     }
 
     // Menampilkan form untuk mengedit sanksi
     public function edit($id)
     {
-        $sanksi = DataSanksi::with(['pelanggaran.siswa'])->findOrFail($id);
-        return view('kesiswaan.sanksi.edit', compact('sanksi'));
+        $sanksi = DataSanksi::with(['siswa.kelas', 'kategoriSanksi'])->findOrFail($id);
+        $siswa = Siswa::with('kelas')->orderBy('nama_siswa')->get();
+        $kategoriSanksi = MasterKategoriSanksi::orderBy('poin_min')->get();
+        
+        return view('kesiswaan.sanksi.edit', compact('sanksi', 'siswa', 'kategoriSanksi'));
     }
 
     // Memperbarui data sanksi di database
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $validated = $request->validate([
+            'kategori_sanksi_id' => 'required|exists:master_kategori_sanksi,id',
             'jenis_sanksi' => 'required|string',
             'deskripsi_hukuman' => 'required|string',
             'tanggal_mulai' => 'required|date',
@@ -109,16 +98,34 @@ class SanksiController extends Controller
         ]);
 
         $sanksi = DataSanksi::findOrFail($id);
-        $sanksi->update($request->all());
+        $sanksi->update($validated);
 
-        return redirect()->route('kesiswaan.sanksi.index')->with('success', 'Sanksi berhasil diupdate');
+        return redirect()->route('kesiswaan.sanksi.index')
+            ->with('success', 'Sanksi berhasil diupdate');
     }
 
     // Menghapus data sanksi
     public function destroy($id)
     {
         DataSanksi::findOrFail($id)->delete();
-        return redirect()->route('kesiswaan.sanksi.index')->with('success', 'Sanksi berhasil dihapus');
+        return redirect()->route('kesiswaan.sanksi.index')
+            ->with('success', 'Sanksi berhasil dihapus');
+    }
+
+    // API untuk mendapatkan info siswa
+    public function getSiswaInfo($siswaId)
+    {
+        $siswa = Siswa::with('kelas')->findOrFail($siswaId);
+        
+        $totalPoin = Pelanggaran::where('siswa_id', $siswaId)
+            ->where('status_verifikasi', 'diverifikasi')
+            ->sum('poin');
+        
+        return response()->json([
+            'nama' => $siswa->nama_siswa,
+            'kelas' => $siswa->kelas->nama_kelas ?? '-',
+            'total_poin' => $totalPoin,
+        ]);
     }
 
     // Mencetak surat panggilan orang tua ke PDF

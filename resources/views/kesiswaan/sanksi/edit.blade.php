@@ -18,7 +18,22 @@
                 
                 <div class="mb-3">
                     <label class="form-label">Siswa</label>
-                    <input type="text" class="form-control" value="{{ $sanksi->pelanggaran->siswa->nama_siswa }}" readonly>
+                    <input type="text" class="form-control" value="{{ $sanksi->siswa->nama_siswa ?? ($sanksi->pelanggaran->siswa->nama_siswa ?? '-') }}" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Kategori Sanksi <span class="text-danger">*</span></label>
+                    <select name="kategori_sanksi_id" class="form-select @error('kategori_sanksi_id') is-invalid @enderror" required>
+                        <option value="">-- Pilih Kategori --</option>
+                        @foreach($kategoriSanksi as $ks)
+                            <option value="{{ $ks->id }}" {{ old('kategori_sanksi_id', $sanksi->kategori_sanksi_id) == $ks->id ? 'selected' : '' }}>
+                                {{ $ks->kategori }} ({{ $ks->pasal }}) - {{ $ks->poin_min }}-{{ $ks->poin_max }} Poin
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('kategori_sanksi_id')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">

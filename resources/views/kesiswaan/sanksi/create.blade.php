@@ -14,119 +14,113 @@
         </a>
     </div>
 
-    {{-- Card 1: Daftar Siswa --}}
+    {{-- Form Tambah Sanksi Manual --}}
     <div class="card shadow-sm mb-4 border-0">
         <div class="card-header py-3 bg-white">
-            <h6 class="m-0 fw-bold text-dark"><i class="fa-solid fa-users-viewfinder me-2"></i> Pilih Siswa Bermasalah</h6>
+            <h6 class="m-0 fw-bold text-dark"><i class="fa-solid fa-gavel me-2"></i> Form Tambah Sanksi Manual</h6>
         </div>
-        <div class="card-body p-0">
-            <div class="table-responsive p-2 p-md-3">
-                {{-- Menggunakan ID tableSiswa dan class sanksi-table --}}
-                <table class="table sanksi-table table-hover" id="tableSiswa" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>NIS</th>
-                            <th>Nama Siswa</th>
-                            <th class="text-center">Kelas</th>
-                            <th class="text-center">Total Poin</th>
-                            <th class="text-center">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse($siswas as $siswa)
-                        <tr>
-                            <td>{{ $siswa->nis }}</td>
-                            <td><strong>{{ $siswa->nama_siswa }}</strong></td>
-                            <td class="text-center">{{ $siswa->kelas->nama_kelas ?? '-' }}</td>
-                            <td class="text-center"><span class="badge bg-danger">{{ $siswa->total_poin ?? 0 }} Poin</span></td>
-                            <td class="text-center">
-                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#sanksiModal{{ $siswa->id }}">
-                                    <i class="fa-solid fa-gavel me-1"></i> Tetapkan
-                                </button>
-                            </td>
-                        </tr>
-
-                        <div class="modal fade" id="sanksiModal{{ $siswa->id }}">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <form action="{{ route('kesiswaan.sanksi.store') }}" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="pelanggaran_id" value="{{ $siswa->pelanggaran->sortByDesc('tanggal')->first()->id ?? '' }}">
-                                        <div class="modal-header bg-primary text-white">
-                                            <h5 class="modal-title">Tetapkan Sanksi - {{ $siswa->nama_siswa }}</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                        </div>
-                                        <div class="modal-body text-start">
-                                            <div class="mb-3">
-                                                <label class="form-label">Jenis Sanksi <span class="text-danger">*</span></label>
-                                                <input type="text" name="jenis_sanksi" class="form-control" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Hukuman <span class="text-danger">*</span></label>
-                                                <textarea name="deskripsi_hukuman" class="form-control" rows="4" required></textarea>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Tanggal Mulai <span class="text-danger">*</span></label>
-                                                        <input type="date" name="tanggal_mulai" class="form-control" value="{{ now()->format('Y-m-d') }}" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Tanggal Selesai</label>
-                                                        <input type="date" name="tanggal_selesai" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                            <button type="submit" class="btn btn-primary">Simpan</button>
-                                        </div>
-                                    </form>
-                                </div>
+        <div class="card-body">
+            <form action="{{ route('kesiswaan.sanksi.store') }}" method="POST">
+                @csrf
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Pilih Siswa <span class="text-danger">*</span></label>
+                            <select name="siswa_id" id="siswa_id" class="form-select" required>
+                                <option value="">-- Pilih Siswa --</option>
+                                @foreach($siswa as $s)
+                                    <option value="{{ $s->id }}">{{ $s->nis }} - {{ $s->nama_siswa }} ({{ $s->kelas->nama_kelas ?? '-' }})</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Info Siswa</label>
+                            <div class="alert alert-info mb-0" id="siswaInfo">
+                                <small>Pilih siswa untuk melihat info</small>
                             </div>
                         </div>
-                        @empty
-                        <tr>
-                            <td colspan="5" class="text-center py-4 text-muted">Tidak ada siswa yang memerlukan sanksi</td>
-                        </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Kategori Sanksi <span class="text-danger">*</span></label>
+                    <select name="kategori_sanksi_id" id="kategori_sanksi_id" class="form-select" required>
+                        <option value="">-- Pilih Kategori --</option>
+                        @foreach($kategoriSanksi as $ks)
+                            <option value="{{ $ks->id }}" data-deskripsi="{{ $ks->deskripsi_sanksi }}">
+                                {{ $ks->kategori }} ({{ $ks->pasal }}) - {{ $ks->poin_min }}-{{ $ks->poin_max }} Poin
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Jenis Sanksi <span class="text-danger">*</span></label>
+                    <input type="text" name="jenis_sanksi" id="jenis_sanksi" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Deskripsi Hukuman <span class="text-danger">*</span></label>
+                    <textarea name="deskripsi_hukuman" id="deskripsi_hukuman" class="form-control" rows="5" required></textarea>
+                    <small class="text-muted">Deskripsi akan otomatis terisi sesuai kategori sanksi yang dipilih</small>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Tanggal Mulai <span class="text-danger">*</span></label>
+                            <input type="date" name="tanggal_mulai" class="form-control" value="{{ now()->format('Y-m-d') }}" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Tanggal Selesai</label>
+                            <input type="date" name="tanggal_selesai" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-save me-1"></i> Simpan Sanksi
+                    </button>
+                    <a href="{{ route('kesiswaan.sanksi.index') }}" class="btn btn-secondary">
+                        <i class="fa-solid fa-times me-1"></i> Batal
+                    </a>
+                </div>
+            </form>
         </div>
     </div>
 
     {{-- Card 2: Referensi Sanksi --}}
     <div class="card shadow-sm border-0">
         <div class="card-header py-3 bg-white">
-            <h6 class="m-0 fw-bold text-dark"><i class="fa-solid fa-book-open me-2"></i> Referensi Sanksi Bertahap</h6>
+            <h6 class="m-0 fw-bold text-dark"><i class="fa-solid fa-book-open me-2"></i> Referensi Kategori Sanksi</h6>
         </div>
         <div class="card-body p-0">
             <div class="table-responsive p-2 p-md-3">
-                {{-- Menggunakan ID tableReferensi dan class sanksi-table --}}
-                <table class="table sanksi-table table-bordered table-hover" id="tableReferensi" style="width:100%">
+                <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th class="text-center">Kategori</th>
-                            <th>Nama Sanksi</th>
+                            <th class="text-center">Pasal</th>
                             <th class="text-center">Range Poin</th>
-                            <th>Deskripsi</th>
+                            <th>Deskripsi Sanksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($masterSanksi as $ms)
+                        @foreach($kategoriSanksi as $ks)
                         <tr>
                             <td class="text-center">
-                                <span class="badge bg-{{ $ms->kategori == 'RINGAN' ? 'success' : ($ms->kategori == 'SEDANG' ? 'warning' : 'danger') }}">
-                                    {{ $ms->kategori }}
+                                <span class="badge bg-{{ $ks->kategori == 'Ringan' ? 'success' : ($ks->kategori == 'Sedang' ? 'warning' : 'danger') }}">
+                                    {{ $ks->kategori }}
                                 </span>
                             </td>
-                            <td><strong>{{ $ms->nama_sanksi }}</strong></td>
-                            <td class="text-center"><span class="badge bg-secondary">{{ $ms->poin_minimal }} - {{ $ms->poin_maksimal }}</span></td>
-                            <td>{{ $ms->deskripsi_tindakan }}</td>
+                            <td class="text-center"><strong>{{ $ks->pasal }}</strong></td>
+                            <td class="text-center"><span class="badge bg-secondary">{{ $ks->poin_min }} - {{ $ks->poin_max }}</span></td>
+                            <td style="white-space: pre-line;">{{ $ks->deskripsi_sanksi }}</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -138,6 +132,33 @@
 @endsection
 
 @push('scripts')
-    {{-- Gunakan Vite untuk JS --}}
-    <script src="{{ asset('kesiswaan/sanksi.js') }}" defer></script>
+<script>
+// Auto-fill info siswa
+document.getElementById('siswa_id').addEventListener('change', function() {
+    const siswaId = this.value;
+    if (siswaId) {
+        fetch(`/kesiswaan/sanksi/siswa-info/${siswaId}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('siswaInfo').innerHTML = `
+                    <strong>${data.nama}</strong><br>
+                    <small>Kelas: ${data.kelas} | Total Poin: <span class="badge bg-danger">${data.total_poin}</span></small>
+                `;
+            });
+    }
+});
+
+// Auto-fill deskripsi sanksi
+document.getElementById('kategori_sanksi_id').addEventListener('change', function() {
+    const selectedOption = this.options[this.selectedIndex];
+    const deskripsi = selectedOption.getAttribute('data-deskripsi');
+    const kategori = selectedOption.text.split(' ')[0];
+    const pasal = selectedOption.text.match(/\(([^)]+)\)/)[1];
+    
+    if (deskripsi) {
+        document.getElementById('jenis_sanksi').value = `Sanksi ${kategori} - ${pasal}`;
+        document.getElementById('deskripsi_hukuman').value = deskripsi;
+    }
+});
+</script>
 @endpush
