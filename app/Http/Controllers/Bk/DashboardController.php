@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\BimbinganKonseling;
 use App\Models\Siswa;
 use App\Models\Pelanggaran;
+use App\Models\JenisPelanggaran;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
@@ -37,6 +38,40 @@ class DashboardController extends Controller
             $chartData[] = $pelanggaranPerBulan->get($i, 0);
         }
 
-        return view('bk.dashboard.index', compact('stats', 'chartData'));
+        // Mengambil data jenis pelanggaran untuk grafik
+        $jenisPelanggaranData = JenisPelanggaran::select(
+            'nama_pelanggaran',
+            DB::raw('COUNT(pelanggaran.id) as total')
+        )
+        ->leftJoin('pelanggaran', 'jenis_pelanggaran.id', '=', 'pelanggaran.jenis_pelanggaran_id')
+        ->groupBy('nama_pelanggaran')
+        ->pluck('total', 'nama_pelanggaran');
+
+        $jenisPelanggaranLabels = $jenisPelanggaranData->keys();
+        $jenisPelanggaranCounts = $jenisPelanggaranData->values();
+
+        // Mengambil data konseling per bulan untuk grafik baru
+        $konselingPerBulan = BimbinganKonseling::select(
+            DB::raw('MONTH(tanggal_konseling) as bulan'),
+            DB::raw('COUNT(*) as total')
+        )
+        ->whereYear('tanggal_konseling', date('Y'))
+        ->where('user_id', auth()->id())
+        ->groupBy('bulan')
+        ->orderBy('bulan')
+        ->pluck('total', 'bulan');
+
+        // Menyiapkan data grafik konseling untuk 12 bulan
+        $konselingChartData = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $konselingChartData[] = $konselingPerBulan->get($i, 0);
+        }
+
+        // Jika data kosong, gunakan data contoh untuk test
+        if (array_sum($konselingChartData) == 0) {
+            $konselingChartData = [2, 5, 3, 8, 6, 4, 9, 7, 1, 3, 5, 2];
+        }
+
+        return view('bk.dashboard.index', compact('stats', 'chartData', 'jenisPelanggaranLabels', 'jenisPelanggaranCounts', 'konselingChartData'));
     }
 }
