@@ -4,8 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script>
+        (function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();
+    </script>
     <title>@yield('title', 'Dashboard Kesiswaan') - SISKAR BN666</title>
-    <link rel="icon" type="image/png" href="{{ asset('logo1.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('logo SMK.png') }}">
     <link rel="stylesheet" href="{{ asset('fonts/poppins.css') }}">
     <link rel="stylesheet" href="{{ asset('fonts/orbitron.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">

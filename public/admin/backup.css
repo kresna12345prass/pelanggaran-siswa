@@ -12,7 +12,7 @@
 .backup-table th {
     font-weight: 600;
     font-size: 0.875rem;
-    color: #495057;
+    color: var(--text-primary);
     background-color: #f8f9fa;
     border-bottom: 2px solid #dee2e6;
     white-space: nowrap;
@@ -165,7 +165,7 @@
 
 .modal-title {
     font-weight: 600;
-    color: #495057;
+    color: var(--text-primary);
 }
 
 .modal-body {
@@ -208,3 +208,4 @@
     background-color: #0b5ed7;
     border-color: #0b5ed7;
 }
+

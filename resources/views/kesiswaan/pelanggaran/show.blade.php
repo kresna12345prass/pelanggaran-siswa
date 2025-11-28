@@ -25,7 +25,7 @@
                     <h5 class="mb-0">Informasi Pelanggaran</h5>
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table table-dark-mode">
                         <tr>
                             <th width="200">Siswa</th>
                             <td>{{ $pelanggaran->siswa->nama_siswa }} ({{ $pelanggaran->siswa->nis }})</td>

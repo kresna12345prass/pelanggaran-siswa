@@ -15,7 +15,7 @@
     </div>
 
     <div class="card aturan-detail-card shadow-sm mb-4">
-        <div class="card-header py-3 bg-light d-flex justify-content-between align-items-center">
+        <div class="card-header py-3 d-flex justify-content-between align-items-center">
             <h6 class="m-0 fw-bold text-primary"><i class="fa-solid fa-gavel me-2"></i>{{ $aturan->nama_pelanggaran }}</h6>
             <span class="badge poin-badge">{{ $aturan->poin }} Poin</span>
         </div>
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <div class="card-footer bg-light d-flex justify-content-end gap-2">
+        <div class="card-footer d-flex justify-content-end gap-2">
             <a href="{{ route('admin.aturan_pelanggaran.edit', $aturan) }}" class="btn btn-warning">
                 <i class="fa-solid fa-pencil-alt me-2"></i>Edit
             </a>

@@ -12,17 +12,23 @@
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
     padding: 1rem;
+    transition: background 0.3s;
+}
+
+[data-theme="dark"] .login-body-siskar {
+    background: linear-gradient(135deg, #1a1d29 0%, #22252f 100%);
 }
 
 .login-container-siskar {
     display: flex;
     width: 100%;
     max-width: 900px;
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     min-height: 550px;
+    transition: background-color 0.3s;
 }
 
 /* =========================================
@@ -40,6 +46,11 @@
     position: relative;
     overflow: hidden;
     text-align: center;
+    transition: background 0.3s;
+}
+
+[data-theme="dark"] .login-branding-side {
+    background: linear-gradient(135deg, #0a4a8a 0%, #083d6e 50%, #062f52 100%);
 }
 
 .login-logo-container {
@@ -191,6 +202,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: var(--card-bg);
+    transition: background-color 0.3s;
 }
 
 .login-header {
@@ -201,7 +214,7 @@
 .login-header h2 {
     font-weight: 700;
     font-size: 2rem;
-    color: #212529;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
@@ -213,7 +226,7 @@
 }
 
 .login-subtitle {
-    color: #6c757d;
+    color: var(--text-secondary);
     font-size: 0.95rem;
     margin: 0;
 }
@@ -228,8 +241,9 @@
     border-radius: 10px;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: #f8f9fa;
-    border: 2px solid #e9ecef;
+    background-color: var(--input-bg);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
     font-size: 0.95rem;
     transition: all 0.3s ease;
 }
@@ -239,7 +253,7 @@
     top: 50%;
     left: 1.1rem;
     transform: translateY(-50%);
-    color: #6c757d;
+    color: var(--text-secondary);
     font-size: 1rem;
     z-index: 3;
     transition: color 0.3s ease;
@@ -250,20 +264,21 @@
 }
 
 .login-form-side .form-control:focus {
-    background-color: #fff;
+    background-color: var(--card-bg);
     border-color: #0d6efd;
     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
     transform: translateY(-1px);
 }
 
 .login-form-side .form-control::placeholder {
-    color: #adb5bd;
+    color: var(--text-secondary);
     font-size: 0.9rem;
+    opacity: 0.7;
 }
 
 .login-form-side .form-label {
     font-weight: 600;
-    color: #495057;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
 
@@ -283,7 +298,8 @@
 .login-options .form-check-input {
     margin-right: 0.5rem;
     border-radius: 4px;
-    border: 2px solid #dee2e6;
+    border: 2px solid var(--border-color);
+    background-color: var(--input-bg);
 }
 
 .login-options .form-check-input:checked {
@@ -292,7 +308,7 @@
 }
 
 .login-options .form-check-label {
-    color: #6c757d;
+    color: var(--text-secondary);
 }
 
 .btn-login-siskar {
@@ -321,7 +337,7 @@
 }
 
 .btn-back-home {
-    color: #6c757d;
+    color: var(--text-secondary);
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
@@ -337,6 +353,10 @@
     background: rgba(13, 110, 253, 0.1);
     text-decoration: none;
     transform: translateY(-1px);
+}
+
+[data-theme="dark"] .btn-back-home:hover {
+    background: rgba(13, 110, 253, 0.2);
 }
 
 /* =========================================

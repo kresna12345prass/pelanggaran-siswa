@@ -6,25 +6,25 @@
 /* Page Title */
 .h3.mb-4 {
     font-weight: 600;
-    color: #2c3e50;
+    color: var(--text-primary);
     font-size: 1.75rem;
 }
 
 /* Kartu Statistik - Simple & Professional */
 .stat-card {
-    border: 1px solid #e8ecef;
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     margin-bottom: 1.5rem;
     transition: all 0.3s ease;
     overflow: hidden;
-    background: #ffffff;
+    background: var(--card-bg);
 }
 
 .stat-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border-color: #d1d9e0;
+    border-color: var(--border-color);
 }
 
 .stat-card .card-body {
@@ -37,7 +37,7 @@
 .stat-card-content h5 {
     font-size: 0.8rem;
     font-weight: 600;
-    color: #6c757d;
+    color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 0.5rem;
@@ -46,7 +46,7 @@
 .stat-card-content .stat-number {
     font-size: 2rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: var(--text-primary);
     line-height: 1;
 }
 
@@ -76,14 +76,14 @@
 
 /* Chart Container */
 .chart-container {
-    background: #ffffff;
+    background: var(--card-bg);
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     height: 100%;
     margin-bottom: 2rem;
     transition: all 0.3s ease;
-    border: 1px solid #e8ecef;
+    border: 1px solid var(--border-color);
 }
 
 .chart-container:hover {
@@ -94,10 +94,10 @@
 .chart-container .card-title {
     font-size: 1rem;
     font-weight: 600;
-    color: #2c3e50;
+    color: var(--text-primary);
     margin-bottom: 1.25rem;
     padding-bottom: 0.75rem;
-    border-bottom: 2px solid #e8ecef;
+    border-bottom: 2px solid var(--border-color);
 }
 
 /* Panel Shortcut */
@@ -105,16 +105,17 @@
     display: flex;
     align-items: center;
     font-weight: 600;
-    color: #495057;
+    color: var(--text-primary);
     padding: 1rem 1.25rem;
-    border: 1px solid #dee2e6;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
     margin-bottom: 0.5rem;
     border-radius: 8px !important;
     transition: all 0.3s ease;
 }
 
 .shortcut-panel .list-group-item:hover {
-    background-color: #f8f9fa;
+    background-color: var(--input-bg);
     color: #0d6efd;
     transform: translateX(5px);
     border-color: #0d6efd;

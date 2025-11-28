@@ -1,3 +1,7 @@
+// Dark Mode
+const theme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', theme);
+
 $(document).ready(function() {
     const table = $('#kategoriTable').DataTable({
         responsive: true,
@@ -40,7 +44,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Script untuk kategori induk baru
     const kategoriIndukBaru = document.getElementById('kategori_induk_baru');
     const kategoriIndukSelect = document.getElementById('kategori_induk');
     

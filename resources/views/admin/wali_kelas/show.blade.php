@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-md-8">
             <div class="card shadow-sm border-0 mb-4">
-                <div class="card-header py-3 bg-white">
+                <div class="card-header py-3">
                     <h6 class="m-0 fw-bold text-dark"><i class="fa-solid fa-info-circle me-2"></i>Informasi Wali Kelas</h6>
                 </div>
                 <div class="card-body">
@@ -74,7 +74,7 @@
         
         <div class="col-md-4">
             <div class="card shadow-sm border-0">
-                <div class="card-header py-3 bg-white">
+                <div class="card-header py-3">
                     <h6 class="m-0 fw-bold text-dark"><i class="fa-solid fa-cogs me-2"></i>Aksi</h6>
                 </div>
                 <div class="card-body">

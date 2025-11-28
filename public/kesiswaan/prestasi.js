@@ -1,8 +1,11 @@
+// Dark Mode
+const theme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', theme);
+
 $(document).ready(function() {
-    var table = $('#prestasiTable').DataTable({
+    const table = $('.table').DataTable({
         responsive: true,
         info: false,
-        searching: true,
         language: {
             url: 'https://cdn.datatables.net/plug-ins/2.0.8/i18n/id.json',
             paginate: {
@@ -12,43 +15,44 @@ $(document).ready(function() {
                 last: '<i class="fa-solid fa-angles-right"></i>'
             }
         },
-        pageLength: 10,
-        lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
-        order: [[5, 'desc']], 
         columnDefs: [
-            { orderable: false, targets: [0, 6] },
-            { className: 'text-center', targets: [0, 2, 4, 5, 6] },
-            { className: 'dt-body-nowrap', targets: 6 }
-        ]
+            { orderable: false, targets: [0, 3] },
+            { className: 'text-center', targets: [0, 3] }
+        ],
+        order: [[1, 'asc']]
     });
-    
-    table.on('draw.dt', function() {
-        var info = table.page.info();
-        table.column(0, { page: 'current' }).nodes().each(function(cell, i) {
-            cell.innerHTML = info.start + i + 1;
+
+    table.on('draw', function() {
+        table.column(0, { search: 'applied', order: 'applied' }).nodes().each(function(cell, i) {
+            cell.innerHTML = i + 1;
         });
     });
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    const deleteModal = document.getElementById('deletePrestasiModal');
+    const deleteModal = document.getElementById('deleteModal');
     
     if (deleteModal) {
         deleteModal.addEventListener('show.bs.modal', function (event) {
             const button = event.relatedTarget;
-            const siswaName = button.getAttribute('data-siswa-name');
+            const nama = button.getAttribute('data-nama');
             const deleteUrl = button.getAttribute('data-delete-url');
             
-            const siswaNameElement = deleteModal.querySelector('#siswaNameToDelete');
-            const deleteForm = deleteModal.querySelector('#deletePrestasiForm');
-            
-            if (siswaNameElement) {
-                siswaNameElement.textContent = siswaName;
-            }
-            
-            if (deleteForm) {
-                deleteForm.setAttribute('action', deleteUrl);
+            deleteModal.querySelector('.modal-title').textContent = 'Hapus Kategori: ' + nama;
+            deleteModal.querySelector('.modal-body-text').textContent = 'Apakah Anda yakin ingin menghapus kategori "' + nama + '"? Tindakan ini tidak dapat dibatalkan.';
+            deleteModal.querySelector('#deleteForm').setAttribute('action', deleteUrl);
+        });
+    }
+
+    const kategoriIndukBaru = document.getElementById('kategori_induk_baru');
+    const kategoriIndukSelect = document.getElementById('kategori_induk');
+    
+    if (kategoriIndukBaru && kategoriIndukSelect) {
+        kategoriIndukBaru.addEventListener('input', function() {
+            if(this.value) {
+                kategoriIndukSelect.value = this.value;
             }
         });
     }
 });
+

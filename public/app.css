@@ -1,3 +1,24 @@
+/* DARK MODE VARIABLES */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --border-color: #dee2e6;
+    --card-bg: #ffffff;
+    --input-bg: #f8f9fa;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #1a1d29;
+    --bg-secondary: #22252f;
+    --text-primary: #e9ecef;
+    --text-secondary: #adb5bd;
+    --border-color: #3a3d4a;
+    --card-bg: #22252f;
+    --input-bg: #2a2d3a;
+}
+
 /* GLOBAL STYLING */
 * {
     margin: 0;
@@ -7,8 +28,10 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fa;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
     overflow-x: hidden;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 html {
@@ -17,6 +40,11 @@ html {
 
 .content-section {
     padding: 5rem 0;
+    transition: background-color 0.3s;
+}
+
+.content-section.bg-white {
+    background-color: var(--bg-primary) !important;
 }
 
 @media (max-width: 768px) {
@@ -31,7 +59,7 @@ html {
     font-size: 2.5rem;
     margin-bottom: 3.5rem;
     position: relative;
-    color: #212529;
+    color: var(--text-primary);
     animation: fadeInUp 0.8s ease;
 }
 
@@ -77,6 +105,7 @@ html {
 
 /* 3. NAVBAR & LOGO KHAS */
 .navbar {
+    background-color: var(--bg-primary) !important;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
 }
@@ -105,9 +134,9 @@ html {
 .navbar-brand .logo-brand .logo-sub {
     font-size: 0.8rem;
     font-family: 'Poppins', sans-serif;
-    color: #6c757d;
+    color: var(--text-secondary);
     margin-left: 8px;
-    border-left: 2px solid #dee2e6;
+    border-left: 2px solid var(--border-color);
     padding-left: 8px;
     line-height: 1;
 }
@@ -131,6 +160,10 @@ html {
     text-align: center;
     position: relative;
     overflow: hidden;
+}
+
+[data-theme="dark"] .hero-section {
+    background: linear-gradient(135deg, #0a4a8a 0%, #083d6e 50%, #062f52 100%);
 }
 
 .hero-section::before {
@@ -205,11 +238,11 @@ html {
 
 /* 5. ABOUT SECTION */
 .about-card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 15px;
     padding: 2.5rem;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
     max-width: 900px;
     margin: 0 auto;
 }
@@ -220,14 +253,14 @@ html {
 }
 
 .about-card h3 {
-    color: #212529;
+    color: var(--text-primary);
     margin-bottom: 1.5rem;
     text-align: center;
 }
 
 .about-card .list-unstyled li {
     padding: 0.8rem 0;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid var(--border-color);
     transition: padding-left 0.3s ease;
 }
 
@@ -237,6 +270,10 @@ html {
 
 .about-card .list-unstyled li:hover {
     padding-left: 10px;
+}
+
+.about-card .text-muted {
+    color: var(--text-secondary) !important;
 }
 
 @media (max-width: 768px) {
@@ -252,13 +289,16 @@ html {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    background: var(--card-bg);
+    transition: background-color 0.3s;
 }
 
 .tata-tertib-accordion .accordion-button {
     font-weight: 600;
     font-size: 1.1rem;
     padding: 1.2rem 1.5rem;
-    background: white;
+    background: var(--card-bg);
+    color: var(--text-primary);
     transition: all 0.3s ease;
 }
 
@@ -295,7 +335,7 @@ html {
 }
 
 .tata-tertib-list .poin:hover {
-    background: #f8f9fa;
+    background: var(--input-bg);
 }
 
 .tata-tertib-list .poin-nomor {
@@ -308,7 +348,7 @@ html {
 }
 
 .tata-tertib-list .poin-teks {
-    color: #495057;
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
@@ -350,6 +390,10 @@ html {
     margin-top: 5rem;
     position: relative;
     overflow: hidden;
+}
+
+[data-theme="dark"] .footer {
+    background: linear-gradient(135deg, #0a4a8a 0%, #083d6e 50%, #062f52 100%);
 }
 
 .footer::before {
@@ -458,6 +502,51 @@ html {
 @media (prefers-reduced-motion: no-preference) {
     .fade-in {
         animation: fadeInUp 0.8s ease;
+    }
+}
+
+/* 11. DARK MODE TOGGLE BUTTON */
+.theme-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    border: none;
+    box-shadow: 0 4px 20px rgba(13, 110, 253, 0.4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 6px 30px rgba(13, 110, 253, 0.6);
+}
+
+[data-theme="dark"] .theme-toggle {
+    background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+    box-shadow: 0 4px 20px rgba(255, 193, 7, 0.4);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    box-shadow: 0 6px 30px rgba(255, 193, 7, 0.6);
+}
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.2rem;
     }
 }
 

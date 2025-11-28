@@ -12,7 +12,7 @@
 .user-table th {
     font-weight: 600;
     font-size: 0.875rem;
-    color: #495057;
+    color: var(--text-primary);
     background-color: #f8f9fa;
     border-bottom: 2px solid #dee2e6;
     white-space: nowrap;
@@ -52,13 +52,13 @@
 }
 .user-table .user-name {
     font-weight: 600;
-    color: #212529;
+    color: var(--text-primary);
     margin-bottom: 0.25rem;
     font-size: 0.9rem;
 }
 .user-table .user-email {
     font-size: 0.8rem;
-    color: #6c757d;
+    color: var(--text-secondary);
     margin-bottom: 0;
 }
 
@@ -98,12 +98,12 @@
 }
 .badge.bg-level-siswa { 
     background-color: #ffc107 !important; 
-    color: #212529; 
+    color: var(--text-primary); 
     font-weight: 500;
 }
 .badge.bg-level-ortu { 
     background-color: #0dcaf0 !important; 
-    color: #212529; 
+    color: var(--text-primary); 
     font-weight: 500;
 }
 .badge.bg-level-unknown { 
@@ -161,13 +161,13 @@
 }
 .user-form-card .form-label {
     font-weight: 600;
-    color: #495057;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
 .user-form-card .form-control,
 .user-form-card .form-select {
     border-radius: 8px;
-    border: 1px solid #dee2e6;
+    border: 1px solid var(--border-color);
     padding: 0.6rem 0.75rem;
     transition: all 0.2s ease;
 }
@@ -188,12 +188,12 @@
 }
 .detail-item {
     padding: 1rem;
-    background: #f8f9fa;
+    background: var(--input-bg);
     border-radius: 8px;
     transition: all 0.2s ease;
 }
 .detail-item:hover {
-    background: #e9ecef;
+    background: var(--border-color);
 }
 .detail-item small {
     font-size: 0.75rem;
@@ -202,7 +202,7 @@
 }
 .detail-item strong {
     font-size: 0.95rem;
-    color: #212529;
+    color: var(--text-primary);
 }
 
 @media (max-width: 768px) {
@@ -220,3 +220,4 @@
         font-size: 0.875rem;
     }
 }
+

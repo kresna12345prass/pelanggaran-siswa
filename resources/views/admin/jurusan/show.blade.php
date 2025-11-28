@@ -15,7 +15,7 @@
     </div>
 
     <div class="card shadow-sm mb-4">
-        <div class="card-header py-3 bg-light d-flex justify-content-between align-items-center">
+        <div class="card-header py-3 d-flex justify-content-between align-items-center">
             <h6 class="m-0 fw-bold text-primary"><i class="fa-solid fa-graduation-cap me-2"></i>{{ $jurusan->nama_jurusan }}</h6>
             <span class="badge bg-primary">{{ $jurusan->kode_jurusan }}</span>
         </div>
@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <div class="card-footer bg-light d-flex justify-content-end gap-2">
+        <div class="card-footer d-flex justify-content-end gap-2">
             <a href="{{ route('admin.jurusan.edit', $jurusan) }}" class="btn btn-warning">
                 <i class="fa-solid fa-pencil-alt me-2"></i>Edit
             </a>

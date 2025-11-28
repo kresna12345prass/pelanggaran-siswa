@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card ta-detail-card shadow-sm h-100">
-                <div class="card-header py-3 bg-light d-flex justify-content-between align-items-center">
+                <div class="card-header py-3 d-flex justify-content-between align-items-center">
                     <h6 class="m-0 fw-bold text-primary">
                         <i class="fa-solid fa-info-circle me-2"></i>
                         Informasi: {{ $tahun_ajaran->tahun_ajaran }} - {{ $tahun_ajaran->semester }}
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-footer bg-light d-flex justify-content-end gap-2">
+                <div class="card-footer d-flex justify-content-end gap-2">
                     <a href="{{ route('admin.tahun_ajaran.edit', $tahun_ajaran) }}" class="btn btn-warning">
                         <i class="fa-solid fa-pencil-alt me-2"></i>Edit Tahun Ajaran
                     </a>

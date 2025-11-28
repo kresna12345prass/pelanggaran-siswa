@@ -23,7 +23,7 @@
                     <h5 class="mb-0"><i class="fa-solid fa-user me-2"></i>Data Siswa</h5>
                 </div>
                 <div class="card-body">
-                    <table class="table table-borderless">
+                    <table class="table table-borderless table-dark-mode">
                         <tr>
                             <th width="150">NIS</th>
                             <td>{{ $pelaksanaan->dataSanksi->pelanggaran->siswa->nis }}</td>
@@ -50,7 +50,7 @@
                     <h5 class="mb-0"><i class="fa-solid fa-exclamation-triangle me-2"></i>Data Pelanggaran</h5>
                 </div>
                 <div class="card-body">
-                    <table class="table table-borderless">
+                    <table class="table table-borderless table-dark-mode">
                         <tr>
                             <th width="150">Jenis Pelanggaran</th>
                             <td>{{ $pelaksanaan->dataSanksi->pelanggaran->jenisPelanggaran->nama_pelanggaran }}</td>
@@ -79,7 +79,7 @@
                     <h5 class="mb-0"><i class="fa-solid fa-gavel me-2"></i>Data Sanksi</h5>
                 </div>
                 <div class="card-body">
-                    <table class="table table-borderless">
+                    <table class="table table-borderless table-dark-mode">
                         <tr>
                             <th width="150">Jenis Sanksi</th>
                             <td><strong>{{ $pelaksanaan->dataSanksi->jenis_sanksi }}</strong></td>
@@ -115,7 +115,7 @@
                     <h5 class="mb-0"><i class="fa-solid fa-check-circle me-2"></i>Data Pelaksanaan</h5>
                 </div>
                 <div class="card-body">
-                    <table class="table table-borderless">
+                    <table class="table table-borderless table-dark-mode">
                         <tr>
                             <th width="150">Tanggal Pelaksanaan</th>
                             <td><strong>{{ \Carbon\Carbon::parse($pelaksanaan->tanggal_pelaksanaan)->format('d F Y, H:i') }} WIB</strong></td>

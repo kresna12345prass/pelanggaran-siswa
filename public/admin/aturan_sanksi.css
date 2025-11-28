@@ -6,7 +6,7 @@
 .aturan-table th {
     font-weight: 600;
     font-size: 0.875rem;
-    color: #495057;
+    color: var(--text-primary);
     background-color: #f8f9fa;
     border-bottom: 2px solid #dee2e6;
     white-space: nowrap;
@@ -82,19 +82,19 @@
 }
 .aturan-form-card .form-label {
     font-weight: 600;
-    color: #495057;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
 .aturan-form-card .form-control,
 .aturan-form-card .form-select {
     border-radius: 8px;
-    border: 1px solid #dee2e6;
+    border: 1px solid var(--border-color);
     padding: 0.6rem 0.75rem;
     transition: all 0.2s ease;
 }
 .aturan-form-card .form-control:focus,
 .aturan-form-card .form-select:focus {
-    border-color: #6c757d;
+    border-color: var(--text-secondary);
     box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.15);
 }
 
@@ -105,17 +105,17 @@
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 .aturan-detail-card .card-header {
-    border-bottom: 2px solid #e9ecef;
-    background-color: #f8f9fa;
+    border-bottom: 2px solid var(--border-color);
+    background-color: var(--input-bg);
 }
 .detail-item {
     padding: 1rem;
-    background: #f8f9fa;
+    background: var(--input-bg);
     border-radius: 8px;
     transition: all 0.2s ease;
 }
 .detail-item:hover {
-    background: #e9ecef;
+    background: var(--border-color);
 }
 .detail-item small {
     font-size: 0.75rem;
@@ -124,7 +124,7 @@
 }
 .detail-item strong {
     font-size: 0.95rem;
-    color: #212529;
+    color: var(--text-primary);
 }
 
 /* Responsive Design */
@@ -139,3 +139,5 @@
         font-size: 0.875rem;
     }
 }
+
+

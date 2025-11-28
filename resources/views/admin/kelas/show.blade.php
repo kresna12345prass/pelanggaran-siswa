@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-lg-4 mb-4">
             <div class="card kelas-detail-card shadow-sm h-100">
-                <div class="card-header py-3 bg-light">
+                <div class="card-header py-3">
                     <h6 class="m-0 fw-bold text-primary"><i class="fa-solid fa-school me-2"></i>Informasi Kelas</h6>
                 </div>
                 <div class="card-body p-4">
@@ -44,7 +44,7 @@
                         <strong class="fs-5 text-success">{{ $kelas->siswa->count() }} Siswa</strong>
                     </div>
                 </div>
-                <div class="card-footer bg-light d-flex justify-content-end gap-2">
+                <div class="card-footer d-flex justify-content-end gap-2">
                     <a href="{{ route('admin.kelas.edit', $kelas) }}" class="btn btn-warning">
                         <i class="fa-solid fa-pencil-alt me-2"></i>Edit Kelas
                     </a>
@@ -54,7 +54,7 @@
 
         <div class="col-lg-8 mb-4">
             <div class="card kelas-detail-card shadow-sm h-100">
-                <div class="card-header py-3 bg-light">
+                <div class="card-header py-3">
                     <h6 class="m-0 fw-bold text-primary"><i class="fa-solid fa-users me-2"></i>Daftar Siswa di Kelas Ini</h6>
                 </div>
                 <div class="card-body p-2">

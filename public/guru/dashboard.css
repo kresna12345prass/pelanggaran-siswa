@@ -108,3 +108,39 @@
         font-size: 2rem;
     }
 }
+
+/* Dark Mode Support */
+.card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.card-header {
+    background-color: var(--input-bg);
+    border-bottom-color: var(--border-color);
+}
+
+.table {
+    background: var(--card-bg);
+    color: var(--text-primary);
+}
+
+.table thead th {
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.table tbody td {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.table tbody tr:hover {
+    background-color: var(--input-bg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+}

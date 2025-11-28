@@ -142,3 +142,40 @@ canvas {
         height: 250px;
     }
 }
+
+
+/* Dark Mode Support */
+.page-title {
+    color: var(--text-primary);
+}
+
+.page-subtitle {
+    color: var(--text-secondary);
+}
+
+.stat-card {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.stat-card-content h5 {
+    color: var(--text-secondary);
+}
+
+.stat-card-content .stat-number {
+    color: var(--text-primary);
+}
+
+.card {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.card-header {
+    background-color: var(--input-bg);
+    border-bottom-color: var(--border-color);
+}
+
+.card-title {
+    color: var(--text-primary);
+}

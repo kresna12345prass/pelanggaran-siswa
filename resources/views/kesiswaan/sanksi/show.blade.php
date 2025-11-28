@@ -32,7 +32,7 @@
                     <h5 class="mb-0">Data Siswa</h5>
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table table-dark-mode">
                         <tr>
                             <th width="150">NIS</th>
                             <td>{{ $sanksi->pelanggaran->siswa->nis }}</td>
@@ -54,7 +54,7 @@
                     <h5 class="mb-0">Pelanggaran Terkait</h5>
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table table-dark-mode">
                         <tr>
                             <th width="150">Jenis</th>
                             <td>{{ $sanksi->pelanggaran->jenisPelanggaran->nama_pelanggaran }}</td>
@@ -78,7 +78,7 @@
                     <h5 class="mb-0">Detail Sanksi</h5>
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table table-dark-mode">
                         <tr>
                             <th width="150">Jenis Sanksi</th>
                             <td><strong>{{ $sanksi->jenis_sanksi }}</strong></td>

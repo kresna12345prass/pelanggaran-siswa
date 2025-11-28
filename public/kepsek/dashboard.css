@@ -85,3 +85,32 @@
     padding-bottom: 0.75rem;
     border-bottom: 2px solid #e8ecef;
 }
+
+
+/* Dark Mode Support */
+.h3.mb-4 {
+    color: var(--text-primary) !important;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.stat-card-content h5 {
+    color: var(--text-secondary);
+}
+
+.stat-card-content .stat-number {
+    color: var(--text-primary);
+}
+
+.chart-container {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.chart-container .card-title {
+    color: var(--text-primary);
+    border-bottom-color: var(--border-color);
+}

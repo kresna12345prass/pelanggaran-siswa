@@ -13,9 +13,9 @@
 .prestasi-table th {
     font-weight: 600;
     font-size: 0.875rem; /* KEMBALI KE NORMAL */
-    color: #495057;
-    background-color: #f8f9fa;
-    border-bottom: 2px solid #dee2e6;
+    color: var(--text-primary);
+    background-color: var(--input-bg);
+    border-bottom: 2px solid var(--border-color);
     white-space: nowrap;
     padding: 0.75rem; /* Padding Normal (Lega) */
 }
@@ -31,7 +31,7 @@
 }
 
 .prestasi-table tbody tr:hover {
-    background-color: #f8f9fc;
+    background-color: var(--input-bg);
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
@@ -77,7 +77,7 @@
 
 /* Text Muted untuk deskripsi */
 .text-muted-small {
-    color: #6c757d !important;
+    color: var(--text-secondary) !important;
     font-size: 0.85rem; /* Normal */
 }
 

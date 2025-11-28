@@ -6,9 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
     <title>@yield('title', 'Dashboard Guru') - SISKAR BN666</title>
 
-    <link rel="icon" type="image/png" href="{{ asset('logo1.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('logo SMK.png') }}">
 
     <link rel="stylesheet" href="{{ asset('fonts/poppins.css') }}">
     <link rel="stylesheet" href="{{ asset('fonts/orbitron.css') }}">
@@ -42,6 +49,11 @@
     </div>
     
     <div class="sidebar-overlay"></div>
+
+    <!-- Dark Mode Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+        <i class="fa-solid fa-moon"></i>
+    </button>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

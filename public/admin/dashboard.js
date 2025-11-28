@@ -1,3 +1,7 @@
+// Dark Mode
+const theme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', theme);
+
 (function() {
     "use strict";
     const colors = ['#667eea','#48bb78','#f56565','#ed8936','#4299e1','#9f7aea','#38b2ac','#dd6b20'];

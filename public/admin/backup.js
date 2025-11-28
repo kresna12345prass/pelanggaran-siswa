@@ -1,5 +1,9 @@
+// Dark Mode
+const theme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', theme);
+
 $(document).ready(function() {
-    const table = $('#backupTable').DataTable({
+    const table = $('.table').DataTable({
         responsive: true,
         info: false,
         language: {
@@ -12,10 +16,10 @@ $(document).ready(function() {
             }
         },
         columnDefs: [
-            { orderable: false, targets: [0, -1] },
+            { orderable: false, targets: -1 },
             { className: 'text-center', targets: [0, -1] }
         ],
-        order: [[3, 'desc']] // Sort by date descending
+        order: [[1, 'asc']]
     });
 
     table.on('draw', function() {
@@ -25,24 +29,15 @@ $(document).ready(function() {
     });
 });
 
-// Modal Hapus Backup
 document.addEventListener("DOMContentLoaded", function() {
-    const deleteConfirmModal = document.getElementById('deleteBackupModal'); 
-    
-    if (deleteConfirmModal) {
-        deleteConfirmModal.addEventListener('show.bs.modal', function (event) {
+    const deleteModal = document.getElementById('deleteModal');
+    if (deleteModal) {
+        deleteModal.addEventListener('show.bs.modal', function (event) {
             const button = event.relatedTarget;
-            
-            const backupName = button.getAttribute('data-backup-name'); 
+            const nama = button.getAttribute('data-nama');
             const deleteUrl = button.getAttribute('data-delete-url');
-            
-            const modalTitle = deleteConfirmModal.querySelector('.modal-title');
-            const modalBody = deleteConfirmModal.querySelector('.modal-body-text');
-            const deleteForm = deleteConfirmModal.querySelector('#deleteBackupForm');
-            
-            modalTitle.textContent = 'Hapus Backup: ' + backupName;
-            modalBody.textContent = 'Apakah Anda yakin ingin menghapus backup "' + backupName + '"? Tindakan ini tidak dapat dibatalkan.';
-            deleteForm.setAttribute('action', deleteUrl);
+            deleteModal.querySelector('.modal-body-text').textContent = 'Apakah Anda yakin ingin menghapus "' + nama + '"? Tindakan ini tidak dapat dibatalkan.';
+            deleteModal.querySelector('#deleteForm').setAttribute('action', deleteUrl);
         });
     }
 });

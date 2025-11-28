@@ -5,8 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script>
+        (function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();
+    </script>
+
     <title>Login - SISKAR BN666</title>
-    <link rel="icon" type="image/png" href="{{ asset('logo1.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('logo SMK.png') }}">
 
     <link rel="stylesheet" href="{{ asset('fonts/poppins.css') }}">
     <link rel="stylesheet" href="{{ asset('fonts/orbitron.css') }}">
@@ -32,7 +36,7 @@
             <div class="login-branding-content">
                 <a href="{{ route('welcome') }}" class="text-decoration-none text-white">
                     <div class="login-logo-container">
-                        <img src="{{ asset('logo2.png') }}" alt="Logo SMK" class="login-school-logo">
+                        <img src="{{ asset('logo SMK.png') }}" alt="Logo SMK" class="login-school-logo">
                         <div class="login-logo-siskar">
                             <span class="logo-sis">SIS</span><span class="logo-kar">KAR</span>
                             <span class="logo-sub">BN 666</span>

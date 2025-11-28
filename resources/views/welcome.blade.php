@@ -5,9 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script>
+        (function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();
+    </script>
+
     <title>SISKAR BN666 - Sistem Poin Karakter SMK Bakti Nusantara 666</title>
 
-    <link rel="icon" type="image/png" href="{{ asset('logo1.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('logo SMK.png') }}">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -24,7 +28,7 @@
         <div class="container">
             <a class="navbar-brand" href="{{ route('welcome') }}">
                 <div class="d-flex align-items-center">
-                    <img src="{{ asset('logo2.png') }}" alt="Logo SMK" height="40" class="me-2">
+                    <img src="{{ asset('logo SMK.png') }}" alt="Logo SMK" height="40" class="me-2">
                     <div class="logo-brand">
                         <span class="logo-sis">SIS</span><span class="logo-kar">KAR</span>
                         <span class="logo-sub">BN 666</span>
@@ -189,7 +193,7 @@
             <div class="footer-content">
                 <div class="footer-left">
                     <div class="footer-logo">
-                        <img src="{{ asset('logo1.png') }}" alt="Logo Footer" height="50">
+                        <img src="{{ asset('logo SMK.png') }}" alt="Logo Footer" height="50">
                     </div>
                     <div class="footer-text">
                         <h5>SMK Bakti Nusantara 666</h5>

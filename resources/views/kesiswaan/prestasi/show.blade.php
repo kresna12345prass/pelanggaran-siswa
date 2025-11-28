@@ -15,7 +15,7 @@
     </div>
 
     <div class="card">
-        <div class="card-header bg-light">
+        <div class="card-header">
             <h5 class="mb-0">{{ $prestasi->jenisPrestasi->nama_prestasi }}</h5>
         </div>
         <div class="card-body">
@@ -104,7 +104,7 @@
                 </div>
             </div>
         </div>
-        <div class="card-footer bg-light d-flex justify-content-end gap-2">
+        <div class="card-footer d-flex justify-content-end gap-2">
             <a href="{{ route('kesiswaan.prestasi.edit', $prestasi) }}" class="btn btn-warning">
                 <i class="fa-solid fa-edit"></i> Edit
             </a>

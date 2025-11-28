@@ -162,3 +162,49 @@
     .btn, .btn-group { display: none !important; }
     .card { border: 1px solid #dee2e6 !important; break-inside: avoid; }
 }
+
+
+/* Dark Mode Support */
+.laporan-table th {
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.laporan-table td {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.laporan-table tbody tr:hover {
+    background-color: var(--input-bg);
+}
+
+.stat-card {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.alert-item {
+    background: var(--card-bg);
+}
+
+.metric-card {
+    background: var(--card-bg);
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.bg-white.card-header {
+    background: var(--input-bg) !important;
+    color: var(--text-primary) !important;
+    border-bottom-color: var(--border-color);
+}
+
+.bg-white.card-header h6 {
+    color: var(--text-primary) !important;
+}

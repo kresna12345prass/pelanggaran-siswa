@@ -1,5 +1,5 @@
 .card {
-    border: 1px solid #e8ecef;
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     margin-bottom: 1.5rem;
@@ -11,9 +11,9 @@
 }
 
 .table thead th {
-    background-color: #f8f9fa;
+    background-color: var(--input-bg);
     font-weight: 600;
-    color: #495057;
+    color: var(--text-primary);
     font-size: 0.813rem;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .table tbody tr:hover {
-    background-color: #f8f9fa;
+    background-color: var(--input-bg);
 }
 
 .badge {

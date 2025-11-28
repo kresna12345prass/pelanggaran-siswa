@@ -1,7 +1,7 @@
 <nav class="sidebar">
     <div class="sidebar-header">
         <a href="{{ route('kepsek.dashboard') }}" class="sidebar-brand-wrapper">
-            <img src="{{ asset('logo1.png') }}" alt="Logo" class="sidebar-logo-img">
+            <img src="{{ asset('logo SMK.png') }}" alt="Logo" class="sidebar-logo-img">
             <div class="logo-brand">
                 <div class="logo-main">
                     <span class="logo-sis">SIS</span><span class="logo-kar">KAR</span>

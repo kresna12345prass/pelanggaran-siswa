@@ -21,3 +21,23 @@
 .rounded-circle {
     border: 3px solid #0d6efd;
 }
+
+
+/* Dark Mode Support */
+.card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.card-header {
+    background-color: var(--input-bg);
+    border-bottom-color: var(--border-color);
+}
+
+.table-borderless th {
+    color: var(--text-primary);
+}
+
+.table-borderless td {
+    color: var(--text-primary);
+}

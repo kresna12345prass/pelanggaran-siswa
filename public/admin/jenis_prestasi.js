@@ -1,5 +1,9 @@
+// Dark Mode
+const theme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', theme);
+
 $(document).ready(function() {
-    const table = $('#jenisPrestasiTable').DataTable({
+    const table = $('.table').DataTable({
         responsive: true,
         info: false,
         language: {
@@ -12,8 +16,8 @@ $(document).ready(function() {
             }
         },
         columnDefs: [
-            { orderable: false, targets: [0, 4] },
-            { className: 'text-center', targets: [0, 3, 4] }
+            { orderable: false, targets: -1 },
+            { className: 'text-center', targets: [0, -1] }
         ],
         order: [[1, 'asc']]
     });
@@ -27,15 +31,12 @@ $(document).ready(function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     const deleteModal = document.getElementById('deleteModal');
-    
     if (deleteModal) {
         deleteModal.addEventListener('show.bs.modal', function (event) {
             const button = event.relatedTarget;
             const nama = button.getAttribute('data-nama');
             const deleteUrl = button.getAttribute('data-delete-url');
-            
-            deleteModal.querySelector('.modal-title').textContent = 'Hapus Jenis Prestasi: ' + nama;
-            deleteModal.querySelector('.modal-body-text').textContent = 'Apakah Anda yakin ingin menghapus jenis prestasi "' + nama + '"? Tindakan ini tidak dapat dibatalkan.';
+            deleteModal.querySelector('.modal-body-text').textContent = 'Apakah Anda yakin ingin menghapus "' + nama + '"? Tindakan ini tidak dapat dibatalkan.';
             deleteModal.querySelector('#deleteForm').setAttribute('action', deleteUrl);
         });
     }

@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- Dark Mode - Load First -->
+    <script>
+        (function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();
+    </script>
+
     <!-- Judul Halaman Dinamis -->
     <title>@yield('title', 'Admin Dashboard') - SISKAR BN666</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('logo1.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('logo SMK.png') }}">
 
     <!-- Google Fonts (Lokal) -->
     <link rel="stylesheet" href="{{ asset('fonts/poppins.css') }}">

@@ -3,7 +3,7 @@
         <div class="footer-content">
             <div class="footer-left">
                 <div class="footer-logo">
-                    <img src="{{ asset('logo1.png') }}" alt="Logo Footer">
+                    <img src="{{ asset('logo SMK.png') }}" alt="Logo Footer">
                 </div>
                 <div class="footer-text">
                     <h6>SMK Bakti Nusantara 666</h6>

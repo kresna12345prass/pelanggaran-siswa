@@ -1,5 +1,9 @@
+// Dark Mode
+const theme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', theme);
+
 $(document).ready(function() {
-    const table = $('#siswaTable').DataTable({
+    const table = $('.table').DataTable({
         responsive: true,
         info: false,
         language: {
@@ -12,10 +16,10 @@ $(document).ready(function() {
             }
         },
         columnDefs: [
-            { orderable: false, targets: [0, 1, -1] },
-            { className: 'text-center', targets: [0, 1, -1] }
+            { orderable: false, targets: -1 },
+            { className: 'text-center', targets: [0, -1] }
         ],
-        order: [[3, 'asc']]
+        order: [[1, 'asc']]
     });
 
     table.on('draw', function() {
@@ -25,30 +29,15 @@ $(document).ready(function() {
     });
 });
 
-
-// 3. KODE MODAL HAPUS
 document.addEventListener("DOMContentLoaded", function() {
-    const deleteConfirmModal = document.getElementById('deleteSiswaModal'); 
-    
-    if (deleteConfirmModal) {
-        deleteConfirmModal.addEventListener('show.bs.modal', function (event) {
+    const deleteModal = document.getElementById('deleteModal');
+    if (deleteModal) {
+        deleteModal.addEventListener('show.bs.modal', function (event) {
             const button = event.relatedTarget;
-            
-            const siswaName = button.getAttribute('data-siswa-name'); 
+            const nama = button.getAttribute('data-nama');
             const deleteUrl = button.getAttribute('data-delete-url');
-            
-            const siswaNameElement = deleteConfirmModal.querySelector('#siswaNameToDelete');
-            const deleteForm = deleteConfirmModal.querySelector('#deleteSiswaForm');
-            
-            // Update nama siswa di modal
-            if (siswaNameElement) {
-                siswaNameElement.textContent = siswaName;
-            }
-            
-            // Update action form
-            if (deleteForm) {
-                deleteForm.setAttribute('action', deleteUrl);
-            }
+            deleteModal.querySelector('.modal-body-text').textContent = 'Apakah Anda yakin ingin menghapus "' + nama + '"? Tindakan ini tidak dapat dibatalkan.';
+            deleteModal.querySelector('#deleteForm').setAttribute('action', deleteUrl);
         });
     }
 });
