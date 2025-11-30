@@ -14,6 +14,7 @@ $(document).ready(function() {
         const table = $('#prestasiTable').DataTable({
             responsive: true,
             info: false,
+            pagingType: 'full_numbers',
             language: languageConfig,
             // Kolom: 0:No, 1:Tanggal, 2:Jenis, 3:Tingkat, 4:Pencatat, 5:Aksi
             columnDefs: [

@@ -9,6 +9,7 @@ $(document).ready(function() {
         info: true,
         paging: true,
         pageLength: 10,
+        pagingType: 'full_numbers',
         language: {
             url: 'https://cdn.datatables.net/plug-ins/2.0.8/i18n/id.json',
             paginate: {

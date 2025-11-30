@@ -42,9 +42,13 @@
             </button>
 
             <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item me-3">
+                        <button class="theme-toggle-navbar" id="themeToggleBtn">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
                     <li class="nav-item">
-                        
                         <a href="{{ route('login') }}" class="btn btn-primary rounded-pill px-4 shadow-sm">
                         <i class="fa-solid fa-right-to-bracket me-2"></i>
                             Login

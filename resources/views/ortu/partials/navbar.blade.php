@@ -12,6 +12,11 @@
     </form>
     
     <ul class="navbar-nav ms-auto ms-md-0">
+        <li class="nav-item">
+            <button class="theme-toggle-navbar" id="themeToggleBtn">
+                <i class="fas fa-moon"></i>
+            </button>
+        </li>
         <li class="nav-item dropdown user-dropdown">
             <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="d-none d-md-inline me-2 user-name">{{ Auth::user()->nama_lengkap ?? Auth::user()->email }}</span>

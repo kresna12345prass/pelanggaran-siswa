@@ -1,7 +1,7 @@
 // SISKAR BN666 App
 console.log('SISKAR BN666 App Loaded.');
 
-// Dark Mode Toggle
+// Dark Mode Toggle (Navbar Version)
 (function() {
     const currentTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', currentTheme);
@@ -15,12 +15,21 @@ console.log('SISKAR BN666 App Loaded.');
     }
     
     function updateIcon(theme) {
-        const icon = document.querySelector('.theme-toggle i');
-        if (icon) icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        const icons = document.querySelectorAll('.theme-toggle-navbar i, .theme-toggle i');
+        icons.forEach(icon => {
+            icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        });
     }
     
     document.addEventListener('DOMContentLoaded', function() {
-        if (!document.querySelector('.theme-toggle')) {
+        const navbarToggle = document.getElementById('themeToggleBtn');
+        if (navbarToggle) {
+            updateIcon(currentTheme);
+            navbarToggle.addEventListener('click', toggleTheme);
+        }
+        
+        // Untuk halaman login (floating button)
+        if (document.querySelector('.login-body-siskar') && !document.querySelector('.theme-toggle')) {
             const btn = document.createElement('button');
             btn.className = 'theme-toggle';
             btn.innerHTML = '<i class="fas fa-moon"></i>';

@@ -7,6 +7,7 @@ $(document).ready(function() {
             }
         },
         info: false,
+        pagingType: 'full_numbers',
         language: {
             url: 'https://cdn.datatables.net/plug-ins/2.0.8/i18n/id.json',
             paginate: {
